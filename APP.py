@@ -67,6 +67,8 @@ def main():
         # 追加: off リストの値を表示
         st.write('OFF日: ' + ', '.join([week[i] for i in off]))
 
+    st.write(off_days)
+
     # トレーニングスケジュールを作成
     for i in range(7):
         if i in off:
@@ -82,6 +84,7 @@ def main():
 
     # 表形式でトレーニングメニューを出力
     st.write(df)
+
                 
 if __name__ == '__main__':
     main()
