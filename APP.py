@@ -3,27 +3,26 @@ import streamlit as st
 def main():
     st.title("ランニングの練習メニュー作成アプリ")
 
-    # 送信ボタンを追加する
-    submitted = st.button('作成')
+    # 入力フォームを作成
+    st.write('自己ベスト (hh:mm:ss)')
+    best_time = st.text_input('best_time', value='00:00:00')
 
-    # フォームの作成
-    if submitted:
-        st.write('自己ベスト (hh:mm:ss)')
-        best_time = st.text_input('best_time', value='00:00:00')
+    st.write('年齢')
+    age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
 
-        st.write('年齢')
-        age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
+    st.write('種目')
+    event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
 
-        st.write('種目')
-        event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
+    st.write('練習頻度')
+    freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週'])
 
-        st.write('練習頻度')
-        freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週'])
-
-        # すべての入力ができているかチェック
-        if best_time == '00:00:00' or age == 0 or event == '' or freq == '':
-            st.warning('すべての入力が必要です')
-            submitted = False
+    # すべての入力ができているかチェック
+    if best_time == '00:00:00' or age == 0 or event == '' or freq == '':
+        st.warning('未入力の項目があります')
+        submitted = False
+    else:
+        # 作成ボタンを押した時の処理を記述
+        submitted = st.button('作成')
             
     # メニューの作成
     if submitted:
