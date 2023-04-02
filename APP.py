@@ -72,7 +72,7 @@ def main():
                 st.write(f'{week[i]}: OFF')
             elif i == 2:  # ペース走
                 st.write(f'{week[i]}: ペース走, 設定ペース{threshold_pace}/km, 20min')
-            elif i == 6:  # ロングラン
+            elif i == 5:  # ロングラン
                 st.write(f'{week[i]}: ロングラン, 設定ペース{easy_pace}/km, 90min')
             else:
                 st.write(f'{week[i]}: Jog, 設定ペース{easy_pace}/km, 60min')
