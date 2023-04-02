@@ -84,10 +84,11 @@ def main():
                 menu = 'OFF'
             elif event in ['5000m', '10000m'] and i == 2:  # インターバル走
                 menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
-            elif i == 5 and event in ['ハーフマラソン', 'フルマラソン']:  # ロングラン
-                menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
             elif i == 2:  # ペース走
                 menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+            elif i == 5:  # ロングラン
+                menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
+
             else:
                 menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
 
