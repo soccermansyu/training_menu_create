@@ -11,9 +11,6 @@ def main():
     st.write('自己ベスト (hh:mm:ss)')
     best_time = st.text_input('best_time', value='00:00:00')
 
-    st.write('年齢')
-    age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
-
     st.write('練習頻度')
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
@@ -28,7 +25,7 @@ def main():
     interval_pace = st.text_input('interval_pace', value='0:00')
 
     # すべての入力ができているかチェック
-    if best_time == '00:00:00' or age == 0 or event == '' or freq == '' or easy_pace == '0:00' or threshold_pace == '0:00' or interval_pace == '0:00':
+    if best_time == '00:00:00' or event == '' or freq == '' or easy_pace == '0:00' or threshold_pace == '0:00' or interval_pace == '0:00':
         st.warning('未入力の項目があります')
         submitted = False
     else:
@@ -50,9 +47,7 @@ def main():
 # メニューの作成
     if submitted:
         st.write(f'種目: {event}')
-        st.write('トレーニングメニュー')
         st.write(f'自己ベスト: {best_time}')
-        st.write(f'年齢: {age}')
         st.write(f'練習頻度: {freq}')
 
         # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
@@ -66,7 +61,7 @@ def main():
 
         off_days = 'OFF日: ' + ', '.join([week[i] for i in off])
         st.write(off_days)    
-
+        st.write('トレーニングメニュー')
     # トレーニングスケジュールを作成
         df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
         for i in range(7):
