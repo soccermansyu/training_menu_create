@@ -70,20 +70,20 @@ def main():
         st.write(off_days)    
 
     # トレーニングスケジュールを作成
-    for i in range(7):
-        if i in off:
-            menu = 'OFF'
-        elif i == 2:  # ペース走
-            menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
-        elif i == 5:  # ロングラン
-            menu = f'ロングラン, 設定ペース{easy_pace}/km, 90min'
-        else:
-            menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
+        for i in range(7):
+            if i in off:
+                menu = 'OFF'
+            elif i == 2:  # ペース走
+                menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+            elif i == 5:  # ロングラン
+                menu = f'ロングラン, 設定ペース{easy_pace}/km, 90min'
+            else:
+                menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
 
-        df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
+            df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
 
-    # 表形式でトレーニングメニューを出力
-    st.write(df)
+        # 表形式でトレーニングメニューを出力
+        st.write(df)
 
                 
 if __name__ == '__main__':
