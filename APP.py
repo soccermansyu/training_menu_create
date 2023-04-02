@@ -51,15 +51,15 @@ def main():
         if freq == '1回/週':
             off = [0, 1, 2, 3, 4, 6]
         elif freq == '2回/週':
-        off = [0, 1, 3, 4, 6]
+            off = [0, 1, 3, 4, 6]
         elif freq == '3回/週':
-        off = [1, 3, 4, 6]
+            off = [1, 3, 4, 6]
         elif freq == '4回/週':
-        off = [1, 3, 4]
+            off = [1, 3, 4]
         elif freq == '5回/週':
-        off = [1, 5]
+            off = [1, 5]
         else:
-        off = [0]
+            off = [0]
     st.write('OFF日: ' + ', '.join([week[i] for i in off]))
 
     st.write('トレーニングスケジュール')
