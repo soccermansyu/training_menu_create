@@ -65,9 +65,9 @@ def main():
         week = ['月', '火', '水', '木', '金', '土', '日']
 
         # 追加: off リストの値を表示
-        st.write('OFF日: ' + ', '.join([week[i] for i in off]))
 
-    st.write(off_days)
+        off_days = 'OFF日: ' + ', '.join([week[i] for i in off])
+        st.write(off_days)    
 
     # トレーニングスケジュールを作成
     for i in range(7):
