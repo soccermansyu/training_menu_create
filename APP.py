@@ -6,24 +6,24 @@ def main():
     # フォームの作成
     with st.form(key='my_form'):
         st.write('自己ベスト')
-        best_time = st.number_input('', min_value=0.0, max_value=None, value=0.0, step=0.01)
+        best_time = st.number_input('best_time', min_value=0.0, max_value=None, value=0.0, step=0.01)
         
         st.write('年齢')
-        age = st.number_input('', min_value=0, max_value=None, value=0, step=1)
+        age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
         
         st.write('練習頻度')
-        freq = st.selectbox('', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週', '毎日'])
+        freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週', '毎日'])
         
         st.write('週間走行距離')
-        distance = st.number_input('', min_value=0.0, max_value=None, value=0.0, step=0.01)
+        distance = st.number_input('distance', min_value=0.0, max_value=None, value=0.0, step=0.01)
         
         st.write('目標レース距離')
-        target_distance = st.number_input('', min_value=0.0, max_value=None, value=0.0, step=0.01)
+        target_distance = st.number_input('target_distance', min_value=0.0, max_value=None, value=0.0, step=0.01)
 
         st.write('曜日のOFF設定')
-        off_days = st.multiselect('', ['月', '火', '水', '木', '金', '土', '日'])
-        
-        submitted = st.form_submit_button('作成')  # Submitボタンを追加
+        off_days = st.multiselect('off_days', ['月', '火', '水', '木', '金', '土', '日'])
+
+        submitted = st.form_submit_button('作成')
 
     # メニューの作成
     if submitted:
