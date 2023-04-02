@@ -70,7 +70,7 @@ def main():
         st.write(off_days)    
 
     # トレーニングスケジュールを作成
-    　　df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
+        df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
         for i in range(7):
             if i in off:
                 menu = 'OFF'
