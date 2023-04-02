@@ -15,7 +15,7 @@ def main():
     age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
 
     st.write('練習頻度')
-    freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週'])
+    freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # 追加: Easy Pace, Threshold Pace, Interval Pace の入力フォームを作成
     st.write('Easy Pace (/km) (m:ss)')
@@ -36,18 +36,16 @@ def main():
         submitted = st.button('作成')
 
         # 追加: off リストを更新
-        if freq == '1回/週':
-            off = [0, 1, 2, 3, 4, 6]
-        elif freq == '2回/週':
-            off = [0, 1, 3, 4, 6]
-        elif freq == '3回/週':
+        if freq == '3回/週':
             off = [1, 3, 4, 6]
         elif freq == '4回/週':
             off = [1, 3, 4]
         elif freq == '5回/週':
             off = [1, 5]
+        elif freq == '6回/週':
+            off = [0]            
         else:
-            off = [0]
+            off = None
 
 # メニューの作成
     if submitted:
