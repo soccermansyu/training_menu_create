@@ -34,32 +34,22 @@ def main():
         # 作成ボタンを押した時の処理を記述
         submitted = st.button('作成')
             
-    # メニューの作成
-    if submitted:
-        st.write('トレーニングメニュー')
-        st.write(f'自己ベスト: {best_time}')
-        st.write(f'年齢: {age}')
-        st.write(f'種目: {event}')
-        st.write(f'練習頻度: {freq}')
-        
-        # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
-        st.write(f'Easy Pace (1km): {easy_pace}')
-        st.write(f'Threshold Pace (1km): {threshold_pace}')
-        st.write(f'Interval Pace (1km): {interval_pace}')
+# メニューの作成
+if submitted:
+    st.write('トレーニングメニュー')
+    st.write(f'自己ベスト: {best_time}')
+    st.write(f'年齢: {age}')
+    st.write(f'種目: {event}')
+    st.write(f'練習頻度: {freq}')
+    
+    # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
+    st.write(f'Easy Pace (1km): {easy_pace}')
+    st.write(f'Threshold Pace (1km): {threshold_pace}')
+    st.write(f'Interval Pace (1km): {interval_pace}')
 
-        week = ['月', '火', '水', '木', '金', '土', '日']
-        if freq == '1回/週':
-            off = [0, 1, 2, 3, 4, 6]
-        elif freq == '2回/週':
-            off = [0, 1, 3, 4, 6]
-        elif freq == '3回/週':
-            off = [1, 3, 4, 6]
-        elif freq == '4回/週':
-            off = [1, 3, 4]
-        elif freq == '5回/週':
-            off = [1, 5]
-        else:
-            off = [0]
+    week = ['月', '火', '水', '木', '金', '土', '日']
+
+    # 追加: off リストの値を表示
     st.write('OFF日: ' + ', '.join([week[i] for i in off]))
 
     st.write('トレーニングスケジュール')
