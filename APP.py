@@ -41,7 +41,7 @@ def main():
         elif freq == '4回/週':
             off = [1, 3, 4]
         elif freq == '5回/週':
-            off = [1, 5]
+            off = [1, 4]
         elif freq == '6回/週':
             off = [0]            
         else:
