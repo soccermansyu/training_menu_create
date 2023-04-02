@@ -51,9 +51,11 @@ def main():
         st.write(f'練習頻度: {freq}')
 
         # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
-        st.write(f'Easy Pace (/km): {easy_pace}')
-        st.write(f'Threshold Pace (/km): {threshold_pace}')
-        st.write(f'Interval Pace (/km): {interval_pace}')
+        pace_data = {'Easy Pace (/km)': [easy_pace],
+                     'Threshold Pace (/km)': [threshold_pace],
+                     'Interval Pace (/km)': [interval_pace]}
+        pace_df = pd.DataFrame(data=pace_data)
+        st.table(pace_df)
 
         week = ['月', '火', '水', '木', '金', '土', '日']
 
@@ -77,7 +79,7 @@ def main():
             df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
 
         # 表形式でトレーニングメニューを出力
-        st.write(df)
+        st.table(df.set_index('曜日'))
 
                 
 if __name__ == '__main__':
