@@ -45,7 +45,7 @@ def main():
         elif freq == '6回/週':
             off = [0]            
         else:
-            off = 
+            off = []
 
 # メニューの作成
     if submitted:
