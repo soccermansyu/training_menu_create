@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 def main():
     st.title("ランニングの練習メニュー作成アプリ")
