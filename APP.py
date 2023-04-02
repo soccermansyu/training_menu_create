@@ -33,7 +33,21 @@ def main():
     else:
         # 作成ボタンを押した時の処理を記述
         submitted = st.button('作成')
-            
+
+        # 追加: off リストを更新
+        if freq == '1回/週':
+            off = [0, 1, 2, 3, 4, 6]
+        elif freq == '2回/週':
+            off = [0, 1, 3, 4, 6]
+        elif freq == '3回/週':
+            off = [1, 3, 4, 6]
+     elif freq == '4回/週':
+        off = [1, 3, 4]
+    elif freq == '5回/週':
+        off = [1, 5]
+    else:
+        off = [0]
+
 # メニューの作成
 if submitted:
     st.write('トレーニングメニュー')
@@ -62,6 +76,5 @@ if submitted:
             st.write(f'{week[i]}: ロングラン, 設定ペース{easy_pace}/km, 90min')
         else:
             st.write(f'{week[i]}: Jog, 設定ペース{easy_pace}/km, 60min')
-
-if __name__ == '__main__':
+if name == 'main':
     main()
