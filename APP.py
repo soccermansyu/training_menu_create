@@ -22,8 +22,8 @@ def main():
 
         st.write('曜日のOFF設定')
         off_days = st.multiselect('', ['月', '火', '水', '木', '金', '土', '日'])
-
-        submitted = st.form_submit_button('作成')
+        
+        submitted = st.form_submit_button('作成')  # Submitボタンを追加
 
     # メニューの作成
     if submitted:
