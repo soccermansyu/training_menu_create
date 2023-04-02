@@ -12,17 +12,8 @@ def main():
         age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
         
         st.write('練習頻度')
-        freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週', '毎日'])
+        freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週'])
         
-        st.write('週間走行距離')
-        distance = st.number_input('distance', min_value=0.0, max_value=None, value=0.0, step=0.01)
-        
-        st.write('目標レース距離')
-        target_distance = st.selectbox('target_distance', ['5km', '10km', 'Half marathon', 'Full marathon'])
-
-        st.write('OFFにする曜日の設定')
-        off_days = st.multiselect('off_days', ['月', '火', '水', '木', '金', '土', '日'])
-
         submitted = st.form_submit_button('作成')
 
     # メニューの作成
@@ -31,13 +22,26 @@ def main():
         st.write(f'自己ベスト: {best_time}')
         st.write(f'年齢: {age}')
         st.write(f'練習頻度: {freq}')
-        st.write(f'週間走行距離: {distance}')
-        st.write(f'目標レース距離: {target_distance}')
 
         week = ['月', '火', '水', '木', '金', '土', '日']
+        if freq == '1回/週':
+            off_days = ['月', '火', '水', '木', '金']
+        elif freq == '2回/週':
+            off_days = ['月', '水', '日']
+        elif freq == '3回/週':
+            off_days = ['火', '木', '日']
+        elif freq == '4回/週':
+            off_days = ['火', '木', '金']
+        elif freq == '5回/週':
+            off_days = ['火', '金']
+        else:
+            off_days = ['月']
+
         off = []
         for day in off_days:
             off.append(week.index(day))
+
+        st.write(f'OFF日: {", ".join(off_days)}')
 
         st.write('トレーニングスケジュール')
         for i in range(7):
