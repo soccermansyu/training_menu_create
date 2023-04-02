@@ -16,8 +16,18 @@ def main():
     st.write('練習頻度')
     freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週'])
 
+    # 追加: Easy Pace, Threshold Pace, Interval Pace の入力フォームを作成
+    st.write('Easy Pace (1km) (m:ss)')
+    easy_pace = st.text_input('easy_pace', value='0:00')
+    
+    st.write('Threshold Pace (1km) (m:ss)')
+    threshold_pace = st.text_input('threshold_pace', value='0:00')
+    
+    st.write('Interval Pace (1km) (m:ss)')
+    interval_pace = st.text_input('interval_pace', value='0:00')
+
     # すべての入力ができているかチェック
-    if best_time == '00:00:00' or age == 0 or event == '' or freq == '':
+    if best_time == '00:00:00' or age == 0 or event == '' or freq == '' or easy_pace == '0:00' or threshold_pace == '0:00' or interval_pace == '0:00':
         st.warning('未入力の項目があります')
         submitted = False
     else:
@@ -31,33 +41,37 @@ def main():
         st.write(f'年齢: {age}')
         st.write(f'種目: {event}')
         st.write(f'練習頻度: {freq}')
+        
+        # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
+        st.write(f'Easy Pace (1km): {easy_pace}')
+        st.write(f'Threshold Pace (1km): {threshold_pace}')
+        st.write(f'Interval Pace (1km): {interval_pace}')
 
         week = ['月', '火', '水', '木', '金', '土', '日']
         if freq == '1回/週':
             off = [0, 1, 2, 3, 4, 6]
         elif freq == '2回/週':
-            off = [0, 1, 3, 4, 6]
+        off = [0, 1, 3, 4, 6]
         elif freq == '3回/週':
-            off = [1, 3, 4, 6]
+        off = [1, 3, 4, 6]
         elif freq == '4回/週':
-            off = [1, 3, 4]
+        off = [1, 3, 4]
         elif freq == '5回/週':
-            off = [1, 5]
+        off = [1, 5]
         else:
-            off = [0]
+        off = [0]
+    st.write('OFF日: ' + ', '.join([week[i] for i in off]))
 
-        st.write('OFF日: ' + ', '.join([week[i] for i in off]))
-
-        st.write('トレーニングスケジュール')
-        for i in range(7):
-            if i in off:
-                st.write(f'{week[i]}: OFF')
-            elif i == 2:  # ペース走
-                st.write(f'{week[i]}: ペース走, 設定ペース3:30/km, 20min')
-            elif i == 6:  # ロングラン
-                st.write(f'{week[i]}: ロングラン, 設定ペース4:10/km, 90min')
-            else:
-                st.write(f'{week[i]}: Jog, 設定ペース4:30/km, 60min')
+    st.write('トレーニングスケジュール')
+    for i in range(7):
+        if i in off:
+            st.write(f'{week[i]}: OFF')
+        elif i == 2:  # ペース走
+            st.write(f'{week[i]}: ペース走, 設定ペース{threshold_pace}/km, 20min')
+        elif i == 6:  # ロングラン
+            st.write(f'{week[i]}: ロングラン, 設定ペース{easy_pace}/km, 90min')
+        else:
+            st.write(f'{week[i]}: Jog, 設定ペース{easy_pace}/km, 60min')
 
 if __name__ == '__main__':
     main()
