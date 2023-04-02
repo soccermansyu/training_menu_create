@@ -57,4 +57,6 @@ def main():
                 elif i == 6:  # ロングラン
                     st.write(f'{week[i]}: ロングラン, 設定ペース4:10/km, 90min')
                 else:
-                    st.write(f'{week[i]}: OFF'
+                    st.write(f'{week[i]}: OFF')
+if __name__ == '__main__':
+    main()
