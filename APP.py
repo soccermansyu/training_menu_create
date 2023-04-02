@@ -17,12 +17,12 @@ def main():
         st.write('練習頻度')
         freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週'])
 
-        # すべての入力ができているかチェック
-        if best_time == '00:00:00' or age == 0 or event == '' or freq == '':
-            st.warning('すべての入力が必要です')
-            submitted = False
-        else:
-            submitted = st.form_submit_button('作成')
+    # すべての入力ができているかチェック
+    if best_time == '00:00:00' or age == 0 or event == '' or freq == '':
+        st.warning('すべての入力が必要です')
+    else:
+        # 送信ボタンを追加する
+        submitted = st.form_submit_button('作成')
 
     # メニューの作成
     if submitted:
