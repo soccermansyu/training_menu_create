@@ -37,11 +37,11 @@ def main():
 
         # 追加: off リストを更新
         if freq == '3回/週':
-            off = [1, 3, 4, 6]
+            off = [0, 1, 3, 5]
         elif freq == '4回/週':
-            off = [1, 3, 4]
+            off = [0, 3, 4]
         elif freq == '5回/週':
-            off = [1, 4]
+            off = [0, 4]
         elif freq == '6回/週':
             off = [0]            
         else:
@@ -86,7 +86,7 @@ def main():
                 menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
             elif i == 2:  # ペース走
                 menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
-            elif i == 5:  # ロングラン
+            elif i == 6:  # ロングラン
                 menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
 
             else:
