@@ -25,38 +25,31 @@ def main():
 
         week = ['月', '火', '水', '木', '金', '土', '日']
         if freq == '1回/週':
-            off_days = ['月', '火', '水', '木', '金', '日']
-            on_days = ['土']
+            off = [0, 1, 2, 3, 4, 6]
         elif freq == '2回/週':
-            off_days = ['月', '火', '木', '金', '日']
-            on_days = ['水', '土']
+            off = [0, 1, 3, 4, 6]
         elif freq == '3回/週':
-            off_days = ['火', '木', '金', '日']
-            on_days = ['月', '水', '土']
+            off = [1, 3, 4, 6]
         elif freq == '4回/週':
-            off_days = ['火', '木', '金']
-            on_days = ['月', '水', '土', '日']
+            off = [1, 3, 4]
         elif freq == '5回/週':
-            off_days = ['火', '金']
-            on_days = ['月', '水', '木', '土', '日']
+            off = [1, 5]
         else:
-            off_days = ['月']
-            on_days = ['火', '水', '木', '金', '土', '日']
+            off = [0]
 
-        st.write(f'OFF日: {", ".join(off_days)}')
+        st.write('OFF日: ' + ', '.join([week[i] for i in off]))
 
         st.write('トレーニングスケジュール')
         for i in range(7):
-            if week[i] in off_days:
+            if i in off:
                 st.write(f'{week[i]}: OFF')
             else:
-                if i in [0, 2, 4, 6]:  # Jog
-                    st.write(f'{week[i]}: Jog, 設定ペース4:30/km, 60min')
-                elif i == 2:  # ペース走
+                if i == 2:  # ペース走
                     st.write(f'{week[i]}: ペース走, 設定ペース3:30/km, 20min')
                 elif i == 6:  # ロングラン
                     st.write(f'{week[i]}: ロングラン, 設定ペース4:10/km, 90min')
                 else:
-                    st.write(f'{week[i]}: OFF')
+                    st.write(f'{week[i]}: Jog, 設定ペース4:30/km, 60min' if i % 2 == 0 else 'OFF')
+
 if __name__ == '__main__':
     main()
