@@ -3,8 +3,11 @@ import streamlit as st
 def main():
     st.title("ランニングの練習メニュー作成アプリ")
 
+    # 送信ボタンを追加する
+    submitted = st.button('作成')
+
     # フォームの作成
-    with st.form(key='my_form'):
+    if submitted:
         st.write('自己ベスト (hh:mm:ss)')
         best_time = st.text_input('best_time', value='00:00:00')
 
@@ -21,10 +24,7 @@ def main():
         if best_time == '00:00:00' or age == 0 or event == '' or freq == '':
             st.warning('すべての入力が必要です')
             submitted = False
-        else:
-            # 送信ボタンを追加する
-            submitted = st.form_submit_button('作成')
-
+            
     # メニューの作成
     if submitted:
         st.write('トレーニングメニュー')
