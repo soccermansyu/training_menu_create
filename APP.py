@@ -76,5 +76,5 @@ def main():
                 st.write(f'{week[i]}: ロングラン, 設定ペース{easy_pace}/km, 90min')
             else:
                 st.write(f'{week[i]}: Jog, 設定ペース{easy_pace}/km, 60min')
-if name == 'main':
+if __name__ == '__main__':
     main()
