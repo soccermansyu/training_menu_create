@@ -4,26 +4,26 @@ def main():
     st.title("ランニングの練習メニュー作成アプリ")
 
     # 入力フォームを作成
+    st.write('種目')
+    event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
+    
     st.write('自己ベスト (hh:mm:ss)')
     best_time = st.text_input('best_time', value='00:00:00')
 
     st.write('年齢')
     age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
 
-    st.write('種目')
-    event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
-
     st.write('練習頻度')
     freq = st.selectbox('freq', ['1回/週', '2回/週', '3回/週', '4回/週', '5回/週', '6回/週'])
 
     # 追加: Easy Pace, Threshold Pace, Interval Pace の入力フォームを作成
-    st.write('Easy Pace (1km) (m:ss)')
+    st.write('Easy Pace (/km) (m:ss)')
     easy_pace = st.text_input('easy_pace', value='0:00')
     
-    st.write('Threshold Pace (1km) (m:ss)')
+    st.write('Threshold Pace (/km) (m:ss)')
     threshold_pace = st.text_input('threshold_pace', value='0:00')
     
-    st.write('Interval Pace (1km) (m:ss)')
+    st.write('Interval Pace (/km) (m:ss)')
     interval_pace = st.text_input('interval_pace', value='0:00')
 
     # すべての入力ができているかチェック
@@ -50,31 +50,37 @@ def main():
 
 # メニューの作成
     if submitted:
+        st.write(f'種目: {event}')
         st.write('トレーニングメニュー')
         st.write(f'自己ベスト: {best_time}')
         st.write(f'年齢: {age}')
-        st.write(f'種目: {event}')
         st.write(f'練習頻度: {freq}')
 
         # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
-        st.write(f'Easy Pace (1km): {easy_pace}')
-        st.write(f'Threshold Pace (1km): {threshold_pace}')
-        st.write(f'Interval Pace (1km): {interval_pace}')
+        st.write(f'Easy Pace (/km): {easy_pace}')
+        st.write(f'Threshold Pace (/km): {threshold_pace}')
+        st.write(f'Interval Pace (/km): {interval_pace}')
 
         week = ['月', '火', '水', '木', '金', '土', '日']
 
         # 追加: off リストの値を表示
         st.write('OFF日: ' + ', '.join([week[i] for i in off]))
 
-        st.write('トレーニングスケジュール')
-        for i in range(7):
-            if i in off:
-                st.write(f'{week[i]}: OFF')
-            elif i == 2:  # ペース走
-                st.write(f'{week[i]}: ペース走, 設定ペース{threshold_pace}/km, 20min')
-            elif i == 5:  # ロングラン
-                st.write(f'{week[i]}: ロングラン, 設定ペース{easy_pace}/km, 90min')
-            else:
-                st.write(f'{week[i]}: Jog, 設定ペース{easy_pace}/km, 60min')
+    # トレーニングスケジュールを作成
+    for i in range(7):
+        if i in off:
+            menu = 'OFF'
+        elif i == 2:  # ペース走
+            menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+        elif i == 5:  # ロングラン
+            menu = f'ロングラン, 設定ペース{easy_pace}/km, 90min'
+        else:
+            menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
+
+        df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
+
+    # 表形式でトレーニングメニューを出力
+    st.write(df)
+                
 if __name__ == '__main__':
     main()
