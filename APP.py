@@ -48,18 +48,18 @@ def main():
     if submitted:
         st.write(f'種目: {event}')
         st.write(f'自己ベスト: {best_time}')
-    if freq == '4回/週':
-        distance = '週間走行距離50km'
-    elif freq == '5回/週':
-        distance = '週間走行距離65km'
-    elif freq == '6回/週':
-        distance = '週間走行距離85km'
-    elif freq == '7回/週':
-        distance = '週間走行距離110km'
-    else:
-        distance = ''
-    st.write(f'練習頻度: {freq}')
-    st.write(f'週間走行距離目安: {distance}')
+        if freq == '4回/週':
+            distance = '週間走行距離50km'
+        elif freq == '5回/週':
+            distance = '週間走行距離65km'
+        elif freq == '6回/週':
+            distance = '週間走行距離85km'
+        elif freq == '7回/週':
+            distance = '週間走行距離110km'
+        else:
+            distance = ''
+        st.write(f'練習頻度: {freq}')
+        st.write(f'週間走行距離目安: {distance}')
 
 
         # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
