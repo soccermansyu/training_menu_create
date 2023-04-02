@@ -5,8 +5,8 @@ def main():
 
     # フォームの作成
     with st.form(key='my_form'):
-        st.write('自己ベスト')
-        best_time = st.number_input('best_time', min_value=0.0, max_value=None, value=0.0, step=0.01)
+        st.write('自己ベスト (hh:mm:ss)')
+        best_time = st.text_input('best_time', value='00:00:00')
         
         st.write('年齢')
         age = st.number_input('age', min_value=0, max_value=None, value=0, step=1)
@@ -18,9 +18,9 @@ def main():
         distance = st.number_input('distance', min_value=0.0, max_value=None, value=0.0, step=0.01)
         
         st.write('目標レース距離')
-        target_distance = st.number_input('target_distance', min_value=0.0, max_value=None, value=0.0, step=0.01)
+        target_distance = st.selectbox('target_distance', ['5km', '10km', 'Half marathon', 'Full marathon'])
 
-        st.write('曜日のOFF設定')
+        st.write('OFFにする曜日の設定')
         off_days = st.multiselect('off_days', ['月', '火', '水', '木', '金', '土', '日'])
 
         submitted = st.form_submit_button('作成')
@@ -50,8 +50,9 @@ def main():
                     st.write(f'{week[i]}: ペース走, 設定ペース3:30/km, 20min')
                 elif i == 6:  # ロングラン
                     st.write(f'{week[i]}: ロングラン, 設定ペース4:10/km, 90min')
-                else:  # OFF
+                else:
                     st.write(f'{week[i]}: OFF')
+
 
 if __name__ == '__main__':
     main()
