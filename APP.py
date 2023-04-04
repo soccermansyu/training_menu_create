@@ -10,6 +10,9 @@ def main():
     
     st.write('自己ベスト (hh:mm:ss)')
     best_time = st.text_input('best_time', value='00:00:00')
+    
+    st.write('年齢')
+    age = st.slider('age', min_value=10, max_value=80, value=30)
 
     st.write('練習頻度')
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
@@ -64,9 +67,16 @@ def main():
         st.write(f'練習頻度: {freq}')
         st.write(f'週間走行距離目安: {distance}km/週')
 
+        # 目標心拍数を計算
+        max_hr = 207 - age * 0.7
+        easy_hr = int(max_hr * 0.65), int(max_hr * 0.74)
+        moderate_hr = int(max_hr * 0.74), int(max_hr * 0.79)
+        threshold_hr = int(max_hr * 0.8), int(max_hr * 0.88)
+        interval_hr = int(max_hr * 0.9), int(max_hr * 1.0)
 
-        # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
-        pace_data = {'設定ペース': [easy_pace, moderate_pace, threshold_pace, interval_pace]}
+        # 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace, Target Heart Rate の値を表示
+        pace_data = {'設定ペース': [easy_pace, moderate_pace, threshold_pace, interval_pace],
+                     '目標心拍数': [f'{easy_hr[0]}~{easy_hr[1]}', f'{moderate_hr[0]}~{moderate_hr[1]}', f'{threshold_hr[0]}~{threshold_hr[1]}', f'{interval_hr[0]}~{interval_hr[1]}']}
         pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderete Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)'])
         st.table(pace_df.style.hide_index())
 
