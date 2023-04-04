@@ -105,7 +105,7 @@ def main():
             elif event == 'フルマラソン' and i == 2:  # フルマラソン
                 menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
                 
-             elif event == '5000m' and i == 6:  # 5000m
+            elif event == '5000m' and i == 6:  # 5000m
                 menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
             elif event == '10000m' and i == 6:  # 10000m
                 menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'      
