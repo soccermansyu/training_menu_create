@@ -18,11 +18,9 @@ def main():
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace の入力フォームを作成
-    st.write('以下の項目は')
-    st.write('VDOT計算機(https://vdoto2.com/calculator/)')
-    st.write('から各ペースを計算してください。各ペースの調べ方は')
-    st.write('ランニングを科学する(https://shuichi-running.com/training-menu-app/)')
-    st.write('に記載しています。')
+    st.write(' ')
+    st.write('以下の項目はVDOT計算機(https://vdoto2.com/calculator/)から各ペースを計算してください。')
+    st.write('各ペースの調べ方はランニングを科学する(https://shuichi-running.com/training-menu-app/)に記載しています。')
     st.write('Easy Pace (/km) (m:ss)')
     easy_pace = st.text_input('Easy_pace', value='0:00')
     
