@@ -60,7 +60,7 @@ def main():
         st.write(f'種目: {event}')
         st.write(f'自己ベスト: {best_time}')
         st.write(f'最大心拍数(HRmax): {max_hr}回/分')
-        st.write(f'最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
+        st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
         if freq == '4回/週':
             distance = '50'
         elif freq == '5回/週':
