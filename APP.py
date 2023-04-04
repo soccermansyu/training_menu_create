@@ -87,6 +87,7 @@ def main():
         off_days = 'OFF日: ' + ', '.join([week[i] for i in off])
         st.write(off_days)    
         st.write('トレーニングメニュー')
+        st.write('ポイント練習の時は、ウォーミングアップ3kmジョギング、クーリングダウン3kmジョギングを入れる。')
     # トレーニングスケジュールを作成
         df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
         # 練習頻度3回/週
@@ -97,13 +98,13 @@ def main():
 
         # ポイント練習1回目
                 elif event == '5000m' and i == 2:  # 5000m
-                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                    menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
                 elif event == '10000m' and i == 2:  # 10000m
-                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                    menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
                 elif event == 'ハーフマラソン' and i == 2:  # ハーフマラソン
-                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                    menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace}/km, 20min'
                 elif event == 'フルマラソン' and i == 2:  # フルマラソン
-                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                    menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace}/km, 20min'
         # ポイント練習2回目
                 elif i == 6:
                     menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
@@ -117,18 +118,18 @@ def main():
                     menu = 'OFF'
         # ポイント練習1回目
                 elif event == '5000m' and i == 2:  # 5000m
-                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                    menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
                 elif event == '10000m' and i == 2:  # 10000m
-                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                    menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
                 elif event == 'ハーフマラソン' and i == 2:  # ハーフマラソン
-                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                    menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace}/km, 20min'
                 elif event == 'フルマラソン' and i == 2:  # フルマラソン
-                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                    menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace}/km, 20min'
         # ポイント練習2回目
                 elif event == '5000m' and i == 6:  # 5000m
-                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                    menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace}/km, 20min'
                 elif event == '10000m' and i == 6:  # 10000m
-                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'      
+                    menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace}/km, 20min'      
                 elif event == 'ハーフマラソン' and i == 6:  # ハーフマラソン
                     menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
                 elif event == 'フルマラソン' and i == 6:  # フルマラソン
@@ -142,14 +143,14 @@ def main():
                     menu = 'OFF'
         # ポイント練習1回目
                 elif i == 2:
-                    menu = f'ペース走\n設定ペース{threshold_pace}/km, 20min'
+                    menu = f'ポイント練習：ペース走\n設定ペース{threshold_pace}/km, 20min'
         # ポイント練習2回目
                 elif event == '5000m' and i == 5:  # 5000m
-                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                    menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
                 elif event == '10000m' and i == 5:  # 10000m
-                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                    menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
                 elif event == 'ハーフマラソン' and i == 5:  # ハーフマラソン
-                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×3本 レスト400mジョギング'
+                    menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace}/km, 1km×3本 レスト400mジョギング'
         # ポイント練習3回目
                 elif event == '5000m' and i == 6:  # 5000m
                     menu = f'ロングジョグ, 設定ペース{easy_pace}/km, 90min'
