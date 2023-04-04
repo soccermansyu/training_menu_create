@@ -79,11 +79,12 @@ def main():
         st.write('トレーニングメニュー')
     # トレーニングスケジュールを作成
         df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
-        for i in range(7):
-            if i in off:
-                menu = 'OFF'
         # 練習頻度3回/週
-            elif freq in ['4回/週', '5回/週']:
+        if freq in '3回/週':  
+            for i in range(7):
+                if i in off:
+                    menu = 'OFF'
+
         # ポイント練習1回目
                 elif event == '5000m' and i == 2:  # 5000m
                     menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
@@ -99,8 +100,12 @@ def main():
                 else:
                     menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
                 df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
-        # 練習頻度3~5回/週
-            elif freq in ['4回/週', '5回/週']:
+            
+        elif freq in ['4回/週', '5回/週']:
+        for i in range(7):
+            if i in off:
+                menu = 'OFF'
+
         # ポイント練習1回目
                 elif event == '5000m' and i == 2:  # 5000m
                     menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
@@ -122,8 +127,10 @@ def main():
                 else:
                     menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
                 df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
-        # 練習頻度6~7回/週
-            elif freq in ['6回/週', '7回/週']:
+        else:
+            for i in range(7):
+                if i in off:
+                    menu = 'OFF'
         # ポイント練習1回目
                 elif i == 2:
                     menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
