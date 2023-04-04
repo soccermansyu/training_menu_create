@@ -57,7 +57,7 @@ def main():
     max_hr = int(207 - age * 0.7)
     easy_hr = int(max_hr * 0.65), int(max_hr * 0.74)
     moderate_hr = int(max_hr * 0.74), int(max_hr * 0.79)
-    threshold_hr = int(max_hr * 0.8), int(max_hr * 0.88)
+    threshold_hr = int(max_hr * 0.8), int(max_hr * 0.90)
     interval_hr = int(max_hr * 0.9), int(max_hr * 1.0)
 
 # メニューの作成
