@@ -52,17 +52,17 @@ def main():
         st.write(f'種目: {event}')
         st.write(f'自己ベスト: {best_time}')
         if freq == '4回/週':
-            distance = '50km'
+            distance = '50'
         elif freq == '5回/週':
-            distance = '65km'
+            distance = '65'
         elif freq == '6回/週':
-            distance = '85km'
+            distance = '85'
         elif freq == '7回/週':
-            distance = '110km'
+            distance = '110'
         else:
             distance = ''
         st.write(f'練習頻度: {freq}')
-        st.write(f'週間走行距離目安: {distance}/週')
+        st.write(f'週間走行距離目安: {distance}km/週')
 
 
         # 追加: Easy Pace, Threshold Pace, Interval Pace の値を表示
@@ -82,41 +82,70 @@ def main():
         for i in range(7):
             if i in off:
                 menu = 'OFF'
-            elif event in ['5000m', '10000m'] and i == 2:  # インターバル走
-                menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
-            elif i == 2:  # ペース走
-                menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
-            elif i == 6:  # ロングラン
-                menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
-
-            else:
-                menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
-
-
-        for i in range(7):
-            if i in off:
-                menu = 'OFF'
-            elif event == '5000m' and i == 2:  # 5000m
-                menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
-            elif event == '10000m' and i == 2:  # 10000m
-                menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
-            elif event == 'ハーフマラソン' and i == 2:  # ハーフマラソン
-                menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
-            elif event == 'フルマラソン' and i == 2:  # フルマラソン
-                menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
-                
-            elif event == '5000m' and i == 6:  # 5000m
-                menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
-            elif event == '10000m' and i == 6:  # 10000m
-                menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'      
-            elif event == 'ハーフマラソン' and i == 6:  # ハーフマラソン
-                menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
-            elif event == 'フルマラソン' and i == 6:  # フルマラソン
-                menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
-            else:
-                menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
-            df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
-            
+        # 練習頻度3回/週
+            elif freq in ['4回/週', '5回/週']:
+        # ポイント練習1回目
+                elif event == '5000m' and i == 2:  # 5000m
+                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                elif event == '10000m' and i == 2:  # 10000m
+                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                elif event == 'ハーフマラソン' and i == 2:  # ハーフマラソン
+                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                elif event == 'フルマラソン' and i == 2:  # フルマラソン
+                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+        # ポイント練習2回目
+                elif i == 6:
+                    menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
+                else:
+                    menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
+                df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
+        # 練習頻度3~5回/週
+            elif freq in ['4回/週', '5回/週']:
+        # ポイント練習1回目
+                elif event == '5000m' and i == 2:  # 5000m
+                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                elif event == '10000m' and i == 2:  # 10000m
+                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                elif event == 'ハーフマラソン' and i == 2:  # ハーフマラソン
+                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                elif event == 'フルマラソン' and i == 2:  # フルマラソン
+                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+        # ポイント練習2回目
+                elif event == '5000m' and i == 6:  # 5000m
+                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+                elif event == '10000m' and i == 6:  # 10000m
+                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'      
+                elif event == 'ハーフマラソン' and i == 6:  # ハーフマラソン
+                    menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
+                elif event == 'フルマラソン' and i == 6:  # フルマラソン
+                    menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
+                else:
+                    menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
+                df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
+        # 練習頻度6~7回/週
+            elif freq in ['6回/週', '7回/週']:
+        # ポイント練習1回目
+                elif i == 2:
+                    menu = f'ペース走, 設定ペース{threshold_pace}/km, 20min'
+        # ポイント練習2回目
+                elif event == '5000m' and i == 5:  # 5000m
+                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                elif event == '10000m' and i == 5:  # 10000m
+                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
+                elif event == 'ハーフマラソン' and i == 5:  # ハーフマラソン
+                    menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×3本 レスト400mジョギング'
+        # ポイント練習3回目
+                elif event == '5000m' and i == 6:  # 5000m
+                    menu = f'ロングジョグ, 設定ペース{easy_pace}/km, 90min'
+                elif event == '10000m' and i == 6:  # 10000m
+                    menu = f'ロングジョグ, 設定ペース{easy_pace}/km, 90min'    
+                elif event == 'ハーフマラソン' and i == 6:  # ハーフマラソン
+                    menu = f'ロングラン, 設定ペース{moderate_pace}/km, 90min'
+                elif event == 'フルマラソン' and i == 6:  # フルマラソン
+                    menu = f'ロングラン, 設定ペース{moderate_pace}/km, 120min'
+                else:
+                    menu = f'Jog, 設定ペース{easy_pace}/km, 60min'
+                df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
         # 表形式でトレーニングメニューを出力
         st.table(df.set_index('曜日'))
 
