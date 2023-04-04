@@ -102,10 +102,9 @@ def main():
                 df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
             
         elif freq in ['4回/週', '5回/週']:
-        for i in range(7):
-            if i in off:
-                menu = 'OFF'
-
+            for i in range(7):
+                if i in off:
+                    menu = 'OFF'
         # ポイント練習1回目
                 elif event == '5000m' and i == 2:  # 5000m
                     menu = f'インターバル走, 設定ペース{interval_pace}/km, 1km×5本 レスト400mジョギング'
