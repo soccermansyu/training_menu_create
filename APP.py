@@ -36,7 +36,7 @@ def main():
     interval_pace = st.text_input('Interval_pace', value='0:00')
 
     # すべての入力ができているかチェック
-    if best_time == '00:00:00' or event == '' or freq == '' or easy_pace == '0:00' or moderate_pace == '0:00' or threshold_pace == '0:00' or interval_pace == '0:00':
+    if event == '' or freq == '' or easy_pace == '0:00' or moderate_pace == '0:00' or threshold_pace == '0:00' or interval_pace == '0:00':
         st.warning('未入力の項目があります')
         submitted = False
     else:
