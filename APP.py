@@ -86,7 +86,7 @@ def main():
 
         off_days = 'OFF日: ' + ', '.join([week[i] for i in off])
         st.write(off_days)    
-        st.write('※ポイント練習の時は、ウォーミングアップ3kmジョギング、クーリングダウン3kmジョギングを行う')
+        st.write('※ポイント練習の時は\nウォーミングアップ3kmジョギング\nクーリングダウン3kmジョギング\nを行う')
     # トレーニングスケジュールを作成
         df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
         # 練習頻度3回/週
