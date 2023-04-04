@@ -81,15 +81,10 @@ def main():
         st.table(pace_df.style.hide_index())
 
         week = ['月', '火', '水', '木', '金', '土', '日']
-
-        # 追加: off リストの値を表示
-
-        off_days = 'OFF日: ' + ', '.join([week[i] for i in off])
-        st.write(off_days)    
-        st.write("""※ポイント練習の時は
-        ウォーミングアップ3kmジョギング
-        クーリングダウン3kmジョギング
-        を行う""")
+        st.write("※ポイント練習の時は")
+        st.write("ウォーミングアップ：3km Jog")
+        st.write("クーリングダウン：3km Jog")
+        st.write("を行う。")
     # トレーニングスケジュールを作成
         df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
         # 練習頻度3回/週
