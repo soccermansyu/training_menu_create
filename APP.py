@@ -5,20 +5,20 @@ def main():
     st.title("ランニングの練習メニュー作成アプリケーション")
 
     # 入力フォームを作成
-    st.write('種目')
+    st.write('1. 種目')
     event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
     
     # st.write('自己ベスト (hh:mm:ss)')
     # best_time = st.text_input('best_time', value='00:00:00')
     
-    st.write('年齢')
+    st.write('2. 年齢')
     age = st.slider('age', min_value=10, max_value=80, value=30)
 
-    st.write('練習頻度')
+    st.write('3. 練習頻度')
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
-
+    
+    st.write('4. ペース設定')
     # 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace の入力フォームを作成
-    st.write(' ')
     st.write('以下の項目はVDOT計算機(https://vdoto2.com/calculator/)')
     st.write('から各ペースを計算してください。')
     st.write('各ペースの調べ方はランニングを科学する(https://shuichi-running.com/training-menu-app/)')
