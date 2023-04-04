@@ -19,9 +19,9 @@ def main():
 
     # 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace の入力フォームを作成
     st.write('以下の項目は')
-    st.write('https://vdoto2.com/calculator/')
+    st.write('VDOT計算機(https://vdoto2.com/calculator/)')
     st.write('から各ペースを計算してください。各ペースの調べ方は')
-    st.write('https://shuichi-running.com/training-menu-app/')
+    st.write('ランニングを科学する(https://shuichi-running.com/training-menu-app/)')
     st.write('に記載しています。')
     st.write('Easy Pace (/km) (m:ss)')
     easy_pace = st.text_input('Easy_pace', value='0:00')
