@@ -49,7 +49,7 @@ def main():
             off = [0]            
         else:
             off = []
-    max_hr = 207 - age * 0.7
+    max_hr = int(207 - age * 0.7)
     easy_hr = int(max_hr * 0.65), int(max_hr * 0.74)
     moderate_hr = int(max_hr * 0.74), int(max_hr * 0.79)
     threshold_hr = int(max_hr * 0.8), int(max_hr * 0.88)
@@ -59,7 +59,7 @@ def main():
     if submitted:
         st.write(f'種目: {event}')
         st.write(f'自己ベスト: {best_time}')
-        st.write(f'最大心拍数(HRmax): {max_hr}')
+        st.write(f'最大心拍数(HRmax): {max_hr}回/分')
         if freq == '4回/週':
             distance = '50'
         elif freq == '5回/週':
