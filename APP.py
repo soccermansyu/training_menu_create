@@ -78,7 +78,14 @@ def main():
 
     # VO2maxを計算する
         vo2max = vo2 / (vo2max / 100)
-
+	paces = {
+	    'easy_pace': (0.59, 0.74),
+	    'moderate_pace': (0.75, 0.79),
+	    'threshold_pace': (0.80, 0.88),
+	    'interval_pace': (0.95, 1.00),
+	    'repetition_pace': (1.05, 1.20)
+	}
+	
         pace_ranges = {}
         for pace, (min_val, max_val) in paces.items():
     	    training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
