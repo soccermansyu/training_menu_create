@@ -53,7 +53,12 @@ def main():
     threshold_hr = (int(max_hr * 0.8), int(max_hr * 0.92))
     interval_hr = (int(max_hr * 0.9), int(max_hr * 1.0))
 
-
+    def seconds_to_mmss(seconds):
+        seconds = int(seconds + 0.5)    # 秒数を四捨五入
+        m = seconds // 60              # 分の取得
+        s = seconds - m * 60           # 秒の取得
+        return f"{m:02}:{s:02}"        # mm:ss形式の文字列で返す
+        
     # メニューの作成
     if submitted:
         # 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace, Target Heart Rate の値を表示
@@ -92,7 +97,6 @@ def main():
             training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
             pace_ranges[pace] = (training_pace_min, training_pace_max)
 
-            
         formatted_pace_ranges = {}
         for pace, (min_val, max_val) in pace_ranges.items():
             # m/min の逆数をとって、min/1kmに変換
@@ -102,12 +106,6 @@ def main():
             formatted_min_pace = seconds_to_mmss(int(min_pace))
             formatted_max_pace = seconds_to_mmss(int(max_pace))
             formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
-
-        def seconds_to_mmss(seconds):
-            seconds = int(seconds + 0.5)    # 秒数を四捨五入
-            m = seconds // 60              # 分の取得
-            s = seconds - m * 60           # 秒の取得
-            return f"{m:02}:{s:02}"        # mm:ss形式の文字列で返す
 
         st.write(f'種目: {event}')
 # st.write(f'自己ベスト: {best_time}')
