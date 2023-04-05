@@ -82,7 +82,7 @@ def main():
         pace_ranges = {}
         for pace, (min_val, max_val) in paces.items():
     	    training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
-	    training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
+            training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
 	    pace_ranges[pace] = (training_pace_min, training_pace_max)
 
 # 各ペースをmm:ssの形式に変換する
