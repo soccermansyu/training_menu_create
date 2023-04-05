@@ -100,7 +100,7 @@ def main():
             # secondをmm:ss形式に変換
             formatted_min_pace = seconds_to_mmss(int(min_pace))
             formatted_max_pace = seconds_to_mmss(int(max_pace))
-            formatted_pace_ranges[pace] = (int(min_pace), int(max_pace))
+            formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
         st.write(f'種目: {event}')
 # st.write(f'自己ベスト: {best_time}')
