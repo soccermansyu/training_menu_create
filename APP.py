@@ -97,7 +97,7 @@ def main():
         for pace, (min_val, max_val) in pace_ranges.items():
             min_pace = datetime.timedelta(minutes=1/min_val)
             max_pace = datetime.timedelta(minutes=1/max_val)
-	    formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
+            formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
 
         st.write(f'種目: {event}')
         # st.write(f'自己ベスト: {best_time}')
