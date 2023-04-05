@@ -95,14 +95,19 @@ def main():
             
         formatted_pace_ranges = {}
         for pace, (min_val, max_val) in pace_ranges.items():
-    # m/min の逆数をとって、min/1kmに変換
+            # m/min の逆数をとって、min/1kmに変換
             min_pace = 1000 / (min_val)
             max_pace = 1000 / (max_val)
-    # min/kmから(mm:ss)/kmに変換
-            formatted_min_pace = datetime.timedelta(seconds=int(min_pace*60))
-            formatted_max_pace = datetime.timedelta(seconds=int(max_pace*60))
-            formatted_pace_ranges[pace] = (str(formatted_min_pace)[:-3], str(formatted_max_pace)[:-3])
+            # minをmm:ss形式に変換
+            formatted_min_pace = seconds_to_mmss(int(min_pace))
+            formatted_max_pace = seconds_to_mmss(int(max_pace))
+            formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
+        def seconds_to_mmss(seconds):
+            seconds = int(seconds + 0.5)    # 秒数を四捨五入
+            m = seconds // 60              # 分の取得
+            s = seconds - m * 60           # 秒の取得
+            return f"{m:02}:{s:02}"        # mm:ss形式の文字列で返す
 
         st.write(f'種目: {event}')
 # st.write(f'自己ベスト: {best_time}')
