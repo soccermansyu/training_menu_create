@@ -70,14 +70,14 @@ def main():
         avev = distance / (best_time_seconds / 60)
 
         # %VO2maxを計算する
-        vo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
-        rvo2max = vo2max * 100
+        rvo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
+        rrvo2max = vo2max * 100
 
         # VO2を計算する
         vo2 = -4.6 + 0.182258 * avev + 0.000104 * avev ** 2
 
         # VO2maxを計算する
-        vo2max = vo2 / (vo2max / 100)
+        vo2max = vo2 / rvo2max
         paces = {
             'easy_pace': (0.59, 0.74),
             'moderate_pace': (0.75, 0.79),
