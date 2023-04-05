@@ -58,7 +58,7 @@ def main():
         seconds = int(seconds + 0.5)    # 秒数を四捨五入
         m = seconds // 60              # 分の取得
         s = seconds - m * 60           # 秒の取得
-        return f"{m:02}:{s:02}"        # mm:ss形式の文字列で返す
+        return f"{m:01}:{s:02}"        # mm:ss形式の文字列で返す
         
     # メニューの作成
     if submitted:
