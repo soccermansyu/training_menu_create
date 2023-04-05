@@ -109,8 +109,8 @@ def main():
         st.write(f'週間走行距離目安: {distance}km/週')
 
 	# ペースと心拍数をテーブルで表示する
-	pace_data = {'設定ペース': [], '目標心拍数(回/分)': []}
-	for pace, (min_val, max_val) in formatted_pace_ranges.items():
+        pace_data = {'設定ペース': [], '目標心拍数(回/分)': []}
+        for pace, (min_val, max_val) in formatted_pace_ranges.items():
             pace_data['設定ペース'].append(f'{min_val} - {max_val}')
             pace_data['目標心拍数(回/分)'].append(f'{hr_ranges[pace][0]} - {hr_ranges[pace][1]}')
 
