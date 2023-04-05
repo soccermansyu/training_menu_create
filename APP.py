@@ -10,13 +10,13 @@ def main():
     st.write('1. 種目')
     event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
     if event == '5000m':
-	distance = 5000
+        distance = 5000
     elif event == '10000m':
-	distance = 10000
+        distance = 10000
     elif event == 'ハーフマラソン':
-	distance = 21095
+        distance = 21095
     else:
-	distance = 42195
+        distance = 42195
     
     st.write('2. 自己ベスト (hh:mm:ss)')
     best_time = st.text_input('best_time', value='00:00:00')
@@ -78,16 +78,16 @@ def main():
 
     pace_ranges = {}
     for pace, (min_val, max_val) in paces.items():
-	training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
-	training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
-	pace_ranges[pace] = (training_pace_min, training_pace_max)
+        training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
+        training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
+        pace_ranges[pace] = (training_pace_min, training_pace_max)
 
 # 各ペースをmm:ssの形式に変換する
     formatted_pace_ranges = {}
     for pace, (min_val, max_val) in pace_ranges.items():
-	min_pace = datetime.timedelta(minutes=1/min_val)
-	max_pace = datetime.timedelta(minutes=1/max_val)
-	formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
+        min_pace = datetime.timedelta(minutes=1/min_val)
+        max_pace = datetime.timedelta(minutes=1/max_val)
+        formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
 
 # メニューの作成
     if submitted:
@@ -111,11 +111,11 @@ def main():
 	# ペースと心拍数をテーブルで表示する
 	pace_data = {'設定ペース': [], '目標心拍数(回/分)': []}
 	for pace, (min_val, max_val) in formatted_pace_ranges.items():
-		pace_data['設定ペース'].append(f'{min_val} - {max_val}')
-		pace_data['目標心拍数(回/分)'].append(f'{hr_ranges[pace][0]} - {hr_ranges[pace][1]}')
+            pace_data['設定ペース'].append(f'{min_val} - {max_val}')
+            pace_data['目標心拍数(回/分)'].append(f'{hr_ranges[pace][0]} - {hr_ranges[pace][1]}')
 
-	pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderate Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)', 'Repetition Pace (/km)'])
-	st.table(pace_df.style.hide_index())
+        pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderate Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)', 'Repetition Pace (/km)'])
+        st.table(pace_df.style.hide_index())
 
         week = ['月', '火', '水', '木', '金', '土', '日']
         st.write("※ポイント練習の時は")
