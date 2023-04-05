@@ -78,7 +78,7 @@ def main():
 
     # VO2maxを計算する
         vo2max = vo2 / (vo2max / 100)
-	paces = {
+        paces = {
 	    'easy_pace': (0.59, 0.74),
 	    'moderate_pace': (0.75, 0.79),
 	    'threshold_pace': (0.80, 0.88),
