@@ -95,9 +95,9 @@ def main():
         formatted_pace_ranges = {}
         for pace, (min_val, max_val) in pace_ranges.items():
             # m/min の逆数をとって、min/1kmに変換
-            min_pace = 1000 / (min_val)
-            max_pace = 1000 / (max_val)
-            # minをmm:ss形式に変換
+            min_pace = 1000 * 60 / (min_val)
+            max_pace = 1000 * 60 / (max_val)
+            # secondをmm:ss形式に変換
             formatted_min_pace = seconds_to_mmss(int(min_pace))
             formatted_max_pace = seconds_to_mmss(int(max_pace))
             formatted_pace_ranges[pace] = (int(min_pace), int(max_pace))
