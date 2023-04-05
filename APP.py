@@ -22,13 +22,13 @@ def main():
     best_time = st.text_input('best_time', value='00:00:00')
 
     st.write('3. 年齢')
-    age = st.slider('age', min_value=10, max_value=80, value=30)
+    age = st.slider('age', min_value=10, max_value=80, value=0)
 
     st.write('4. 練習頻度')
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # すべての入力ができているかチェック
-    if event == '' or best_time == '00:00:00' or freq == '' or age == 30:
+    if event == '' or best_time == '00:00:00' or freq == '' or age == 0:
         st.warning('未入力の項目があります')
         submitted = False
     else:
@@ -109,17 +109,17 @@ def main():
         st.write(f'最大心拍数(HRmax): {max_hr}回/分')
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
         if freq == '4回/週':
-            distance = '50'
+            distance_week = '50'
         elif freq == '5回/週':
-            distance = '65'
+            distance_week = '65'
         elif freq == '6回/週':
-            distance = '85'
+            distance_week = '85'
         elif freq == '7回/週':
-            distance = '110'
+            distance_week = '110'
         else:
-            distance = ''
+            distance_week = ''
         st.write(f'練習頻度: {freq}')
-        st.write(f'週間走行距離目安: {distance}km/週')
+        st.write(f'週間走行距離目安: {distance_week}km/週')
 
         # ペースと心拍数をテーブルで表示する
         hr_ranges = {
