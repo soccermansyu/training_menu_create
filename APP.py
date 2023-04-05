@@ -61,11 +61,6 @@ def main():
         
     # メニューの作成
     if submitted:
-        # 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace, Target Heart Rate の値を表示
-        #pace_data = {'設定ペース': [easy_pace, moderate_pace, threshold_pace, interval_pace],
-        #             '目標心拍数(回/分)': [f'{easy_hr[0]}~{easy_hr[1]}', f'{moderate_hr[0]}~{moderate_hr[1]}', f'{threshold_hr[0]}~{threshold_hr[1]}', f'{interval_hr[0]}~{interval_hr[1]}']}
-        #pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderete Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)'])
-        #st.table(pace_df.style.hide_index())
 
         # 自己ベストを秒数に変換する
         best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
@@ -105,7 +100,7 @@ def main():
             # minをmm:ss形式に変換
             formatted_min_pace = seconds_to_mmss(int(min_pace))
             formatted_max_pace = seconds_to_mmss(int(max_pace))
-            formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
+            formatted_pace_ranges[pace] = (int(min_pace), int(max_pace))
 
         st.write(f'種目: {event}')
 # st.write(f'自己ベスト: {best_time}')
