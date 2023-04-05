@@ -91,9 +91,17 @@ def main():
             training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
             training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
             pace_ranges[pace] = (training_pace_min, training_pace_max)
+
+            
         formatted_pace_ranges = {}
         for pace, (min_val, max_val) in pace_ranges.items():
-            formatted_pace_ranges[pace] = (min_val, max_val)
+            # m/min の逆数をとって、min/1kmに変換
+            min_pace = 1 / min_val
+            max_pace = 1 / max_val
+    # minをmm:ss形式に変換
+            formatted_min_pace = datetime.timedelta(minutes=min_pace)
+            formatted_max_pace = datetime.timedelta(minutes=max_pace)
+            formatted_pace_ranges[pace] = (str(formatted_min_pace)[2:], str(formatted_max_pace)[2:])
         # 各ペースをmm:ssの形式に変換する
 
         st.write(f'種目: {event}')
