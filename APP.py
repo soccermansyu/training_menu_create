@@ -71,7 +71,7 @@ def main():
 
         # %VO2maxを計算する
         rvo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
-        rrvo2max = vo2max * 100
+        rrvo2max = rvo2max * 100
 
         # VO2を計算する
         vo2 = -4.6 + 0.182258 * avev + 0.000104 * avev ** 2
