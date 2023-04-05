@@ -53,44 +53,45 @@ def main():
     threshold_hr = int(max_hr * 0.8), int(max_hr * 0.92)
     interval_hr = int(max_hr * 0.9), int(max_hr * 1.0)
 
-# 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace, Target Heart Rate の値を表示
-#pace_data = {'設定ペース': [easy_pace, moderate_pace, threshold_pace, interval_pace],
-#             '目標心拍数(回/分)': [f'{easy_hr[0]}~{easy_hr[1]}', f'{moderate_hr[0]}~{moderate_hr[1]}', f'{threshold_hr[0]}~{threshold_hr[1]}', f'{interval_hr[0]}~{interval_hr[1]}']}
-#pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderete Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)'])
-#st.table(pace_df.style.hide_index())
-
-    # 自己ベストを秒数に変換する
-    best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
-    best_time_seconds = best_time.hour * 3600 + best_time.minute * 60 + best_time.second
-
-    # 平均ペースを計算する
-    avev = distance / (best_time_seconds / 60)
-
-    # %VO2maxを計算する
-    vo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
-    rvo2max = vo2max * 100
-
-    # VO2を計算する
-    vo2 = -4.6 + 0.182258 * avev + 0.000104 * avev ** 2
-
-    # VO2maxを計算する
-    vo2max = vo2 / (vo2max / 100)
-
-    pace_ranges = {}
-    for pace, (min_val, max_val) in paces.items():
-        training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
-        training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
-        pace_ranges[pace] = (training_pace_min, training_pace_max)
-
-# 各ペースをmm:ssの形式に変換する
-    formatted_pace_ranges = {}
-    for pace, (min_val, max_val) in pace_ranges.items():
-        min_pace = datetime.timedelta(minutes=1/min_val)
-        max_pace = datetime.timedelta(minutes=1/max_val)
-        formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
 
 # メニューの作成
     if submitted:
+	# 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace, Target Heart Rate の値を表示
+	#pace_data = {'設定ペース': [easy_pace, moderate_pace, threshold_pace, interval_pace],
+	#             '目標心拍数(回/分)': [f'{easy_hr[0]}~{easy_hr[1]}', f'{moderate_hr[0]}~{moderate_hr[1]}', f'{threshold_hr[0]}~{threshold_hr[1]}', f'{interval_hr[0]}~{interval_hr[1]}']}
+	#pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderete Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)'])
+	#st.table(pace_df.style.hide_index())
+
+    # 自己ベストを秒数に変換する
+        best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
+        best_time_seconds = best_time.hour * 3600 + best_time.minute * 60 + best_time.second
+
+    # 平均ペースを計算する
+        avev = distance / (best_time_seconds / 60)
+
+    # %VO2maxを計算する
+        vo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
+        rvo2max = vo2max * 100
+
+    # VO2を計算する
+        vo2 = -4.6 + 0.182258 * avev + 0.000104 * avev ** 2
+
+    # VO2maxを計算する
+        vo2max = vo2 / (vo2max / 100)
+
+        pace_ranges = {}
+        for pace, (min_val, max_val) in paces.items():
+    	    training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
+	    training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
+	    pace_ranges[pace] = (training_pace_min, training_pace_max)
+
+# 各ペースをmm:ssの形式に変換する
+        formatted_pace_ranges = {}
+        for pace, (min_val, max_val) in pace_ranges.items():
+    	    min_pace = datetime.timedelta(minutes=1/min_val)
+	    max_pace = datetime.timedelta(minutes=1/max_val)
+	    formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
+	
         st.write(f'種目: {event}')
         # st.write(f'自己ベスト: {best_time}')
         st.write(f'最大心拍数(HRmax): {max_hr}回/分')
