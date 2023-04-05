@@ -224,7 +224,7 @@ def main():
                 elif event == '10000m' and i == 6:  # 10000m
                     menu = f'ロングジョグ, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 90min'    
                 elif event == 'ハーフマラソン' and i == 6:  # ハーフマラソン
-                    menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}}/km, 90min'
+                    menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 90min'
                 elif event == 'フルマラソン' and i == 6:  # フルマラソン
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 120min'
                 else:
