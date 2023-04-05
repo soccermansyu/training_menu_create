@@ -93,11 +93,16 @@ def main():
             pace_ranges[pace] = (training_pace_min, training_pace_max)
 
         # 各ペースをmm:ssの形式に変換する
-        formatted_pace_ranges = {}
         for pace, (min_val, max_val) in pace_ranges.items():
             min_pace = datetime.timedelta(minutes=1/min_val)
+            sec_min = min_pace.seconds
+            formatted_min_pace = f"{sec_min // 60:02d}:{sec_min % 60:02d}"
+    
             max_pace = datetime.timedelta(minutes=1/max_val)
-            formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
+            sec_max = max_pace.seconds
+            formatted_max_pace = f"{sec_max // 60:02d}:{sec_max % 60:02d}"
+    
+            formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
         st.write(f'種目: {event}')
 # st.write(f'自己ベスト: {best_time}')
