@@ -17,26 +17,25 @@ def main():
         distance = 21095
     else:
         distance = 42195
-    
+
     st.write('2. 自己ベスト (hh:mm:ss)')
     best_time = st.text_input('best_time', value='00:00:00')
-	
+
     st.write('3. 年齢')
     age = st.slider('age', min_value=10, max_value=80, value=30)
 
     st.write('4. 練習頻度')
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
-
     # すべての入力ができているかチェック
-    if event == '' or best_time == '' or freq == '' or age == '':
+    if event == '' or best_time == '00:00:00' or freq == '' or age == 30:
         st.warning('未入力の項目があります')
         submitted = False
     else:
         # 作成ボタンを押した時の処理を記述
         submitted = st.button('作成')
 
-        # 追加: off リストを更新
+        # off リストを更新
         if freq == '3回/週':
             off = [0, 1, 3, 5]
         elif freq == '4回/週':
@@ -44,60 +43,62 @@ def main():
         elif freq == '5回/週':
             off = [0, 4]
         elif freq == '6回/週':
-            off = [0]            
+            off = [0]
         else:
             off = []
+
     max_hr = int(207 - age * 0.7)
-    easy_hr = int(max_hr * 0.65), int(max_hr * 0.74)
-    moderate_hr = int(max_hr * 0.74), int(max_hr * 0.79)
-    threshold_hr = int(max_hr * 0.8), int(max_hr * 0.92)
-    interval_hr = int(max_hr * 0.9), int(max_hr * 1.0)
+    easy_hr = (int(max_hr * 0.65), int(max_hr * 0.74))
+    moderate_hr = (int(max_hr * 0.74), int(max_hr * 0.79))
+    threshold_hr = (int(max_hr * 0.8), int(max_hr * 0.92))
+    interval_hr = (int(max_hr * 0.9), int(max_hr * 1.0))
 
 
-# メニューの作成
+    # メニューの作成
     if submitted:
-	# 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace, Target Heart Rate の値を表示
-	#pace_data = {'設定ペース': [easy_pace, moderate_pace, threshold_pace, interval_pace],
-	#             '目標心拍数(回/分)': [f'{easy_hr[0]}~{easy_hr[1]}', f'{moderate_hr[0]}~{moderate_hr[1]}', f'{threshold_hr[0]}~{threshold_hr[1]}', f'{interval_hr[0]}~{interval_hr[1]}']}
-	#pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderete Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)'])
-	#st.table(pace_df.style.hide_index())
+        # 追加: Easy Pace, Moderate Pace, Threshold Pace, Interval Pace, Target Heart Rate の値を表示
+        #pace_data = {'設定ペース': [easy_pace, moderate_pace, threshold_pace, interval_pace],
+        #             '目標心拍数(回/分)': [f'{easy_hr[0]}~{easy_hr[1]}', f'{moderate_hr[0]}~{moderate_hr[1]}', f'{threshold_hr[0]}~{threshold_hr[1]}', f'{interval_hr[0]}~{interval_hr[1]}']}
+        #pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderete Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)'])
+        #st.table(pace_df.style.hide_index())
 
-    # 自己ベストを秒数に変換する
+        # 自己ベストを秒数に変換する
         best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
         best_time_seconds = best_time.hour * 3600 + best_time.minute * 60 + best_time.second
 
-    # 平均ペースを計算する
+        # 平均ペースを計算する
         avev = distance / (best_time_seconds / 60)
 
-    # %VO2maxを計算する
+        # %VO2maxを計算する
         vo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
         rvo2max = vo2max * 100
 
-    # VO2を計算する
+        # VO2を計算する
         vo2 = -4.6 + 0.182258 * avev + 0.000104 * avev ** 2
 
-    # VO2maxを計算する
+        # VO2maxを計算する
         vo2max = vo2 / (vo2max / 100)
         paces = {
-	    'easy_pace': (0.59, 0.74),
-	    'moderate_pace': (0.75, 0.79),
-	    'threshold_pace': (0.80, 0.88),
-	    'interval_pace': (0.95, 1.00),
-	    'repetition_pace': (1.05, 1.20)
-	}
-	
+            'easy_pace': (0.59, 0.74),
+            'moderate_pace': (0.75, 0.79),
+            'threshold_pace': (0.80, 0.88),
+            'interval_pace': (0.95, 1.00),
+            'repetition_pace': (1.05, 1.20)
+        }
+        
         pace_ranges = {}
         for pace, (min_val, max_val) in paces.items():
-    	    training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
-	    training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
-	    pace_ranges[pace] = (training_pace_min, training_pace_max)
+            training_pace_min = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * min_val))) / (2 * 0.000104)
+            training_pace_max = (-0.182258 + math.sqrt(0.182258 ** 2 - 4 * 0.000104 * (-4.6 - vo2max * max_val))) / (2 * 0.000104)
+            pace_ranges[pace] = (training_pace_min, training_pace_max)
 
-# 各ペースをmm:ssの形式に変換する
+        # 各ペースをmm:ssの形式に変換する
         formatted_pace_ranges = {}
         for pace, (min_val, max_val) in pace_ranges.items():
             min_pace = datetime.timedelta(minutes=1/min_val)
             max_pace = datetime.timedelta(minutes=1/max_val)
-	    formatted_pace_ranges[pace] = (str(min_pace)[2:], str(max_pace)[2:])
+            formatted_pace_ranges[pace] = (str(min_pace)[2:])
+
 	
         st.write(f'種目: {event}')
         # st.write(f'自己ベスト: {best_time}')
