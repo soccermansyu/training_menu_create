@@ -20,23 +20,6 @@ def main():
     
     st.write('2. 自己ベスト (hh:mm:ss)')
     best_time = st.text_input('best_time', value='00:00:00')
-    
-    # 自己ベストを秒数に変換する
-    best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
-    best_time_seconds = best_time.hour * 3600 + best_time.minute * 60 + best_time.second
-
-    # 平均ペースを計算する
-    avev = distance / (best_time_seconds / 60)
-
-    # %VO2maxを計算する
-    vo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
-    rvo2max = vo2max * 100
-
-    # VO2を計算する
-    vo2 = -4.6 + 0.182258 * avev + 0.000104 * avev ** 2
-
-    # VO2maxを計算する
-    vo2max = vo2 / (vo2max / 100)
 	
     st.write('3. 年齢')
     age = st.slider('age', min_value=10, max_value=80, value=30)
@@ -75,6 +58,23 @@ def main():
 #             '目標心拍数(回/分)': [f'{easy_hr[0]}~{easy_hr[1]}', f'{moderate_hr[0]}~{moderate_hr[1]}', f'{threshold_hr[0]}~{threshold_hr[1]}', f'{interval_hr[0]}~{interval_hr[1]}']}
 #pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace (/km)', 'Moderete Pace (/km)', 'Threshold Pace (/km)', 'Interval Pace (/km)'])
 #st.table(pace_df.style.hide_index())
+
+    # 自己ベストを秒数に変換する
+    best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
+    best_time_seconds = best_time.hour * 3600 + best_time.minute * 60 + best_time.second
+
+    # 平均ペースを計算する
+    avev = distance / (best_time_seconds / 60)
+
+    # %VO2maxを計算する
+    vo2max = 0.8 + 0.1894393 * math.exp(-0.012788 * best_time_seconds / 60) + 0.2989558 * math.exp(-0.1932605 * best_time_seconds / 60)
+    rvo2max = vo2max * 100
+
+    # VO2を計算する
+    vo2 = -4.6 + 0.182258 * avev + 0.000104 * avev ** 2
+
+    # VO2maxを計算する
+    vo2max = vo2 / (vo2max / 100)
 
     pace_ranges = {}
     for pace, (min_val, max_val) in paces.items():
