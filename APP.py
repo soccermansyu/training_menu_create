@@ -114,7 +114,7 @@ def main():
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
         if freq == '3 回/週':
             distance_week = '40'
-        if freq == '4 回/週':
+        elif freq == '4 回/週':
             distance_week = '50'
         elif freq == '5 回/週':
             distance_week = '65'
