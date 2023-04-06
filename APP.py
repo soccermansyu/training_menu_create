@@ -109,9 +109,11 @@ def main():
             formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
         st.write(f'種目: {event2}')
-# st.write(f'自己ベスト: {best_time}')
+        st.write(f'現在のVDOT(vo2max): {vo2max}')
         st.write(f'最大心拍数(HRmax): {max_hr}回/分')
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
+        if freq == '3回/週':
+            distance_week = '40'
         if freq == '4回/週':
             distance_week = '50'
         elif freq == '5回/週':
@@ -166,7 +168,6 @@ def main():
             for i in range(7):
                 if i in off:
                     menu = 'OFF'
-
         # ポイント練習1回目
                 elif event2 == '5000m' and i == 2:  # 5000m
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_min}/km, 1km×5本 レスト400mジョギング'
@@ -238,6 +239,8 @@ def main():
         st.table(df.set_index('曜日'))
         st.write("コメント：")
         st.write("年間を通じて行うことで記録が向上する、基本的なトレーニングメニューです。")
+        st.write("走る距離ではなく、時間を目安にメニューを作成しています。")
+        st.write("設定ペースはあくまで目安です。各個人によって適切なペースは異なる可能性があります。")
         st.write("目標とするレースに合わせて、練習の内容を変えることで、さらに記録向上を狙うことも可能ですが、そこまで突き詰める必要が無い方にとっては、このトレーニングメニューで十分だと考えています。")
                 
 if __name__ == '__main__':
