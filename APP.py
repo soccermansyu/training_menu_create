@@ -22,10 +22,10 @@ def main():
     #best_time = st.text_input('best_time', value='00:00:00')
     
     st.write('2. 自己ベスト (hh:mm:ss)')
-    best_time = st.slider('best_time', value=datetime.time(hour=0, minute=0, second=0),
-                          format='HH:mm:ss', step=datetime.timedelta(seconds=1),
-                          max_value=datetime.time(hour=4, minute=59, second=59))
-    best_time = best_time.strftime('%H:%M:%S')
+    hours = st.multiselect('hours', list(range(24)), default=[0])
+    minutes = st.multiselect('minutes', list(range(60)), default=[0])
+    seconds = st.multiselect('seconds', list(range(60)), default=[0])
+    best_time_str = f"{hours[0]:02d}:{minutes[0]:02d}:{seconds[0]:02d}"
     
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
