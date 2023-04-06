@@ -109,8 +109,8 @@ def main():
             formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
         st.write(f'種目: {event2}')
-        st.write(f'現在のVDOT(vo2max): {round(vo2max, 1)}')
-        st.write(f'最大心拍数(HRmax): {max_hr}回/分')
+        st.write(f'現在のVDOT(vo2max): {round(vo2max, 1)} ml/kg/分')
+        st.write(f'最大心拍数(HRmax): {max_hr} 回/分')
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
         if freq == '3回/週':
             distance_week = '40'
@@ -125,7 +125,7 @@ def main():
         else:
             distance_week = ''
         st.write(f'練習頻度: {freq}')
-        st.write(f'週間走行距離目安: {distance_week}km/週')
+        st.write(f'週間走行距離目安: {distance_week} km/週')
 
         # ペースと心拍数をテーブルで表示する
         hr_ranges = {
