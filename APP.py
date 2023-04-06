@@ -109,7 +109,7 @@ def main():
             formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
         st.write(f'種目: {event2}')
-        st.write(f'現在のVDOT(vo2max): {round(vo2max, 2)}')
+        st.write(f'現在のVDOT(vo2max): {round(vo2max, 1)}')
         st.write(f'最大心拍数(HRmax): {max_hr}回/分')
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
         if freq == '3回/週':
