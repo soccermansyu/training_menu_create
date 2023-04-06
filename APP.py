@@ -131,11 +131,11 @@ def main():
             'interval_pace': interval_hr,
             'repetition_pace': repetition_hr
         }
-
+            
         pace_data = {'設定ペース': [], '目標心拍数(回/分)': []}
-        for pace, (min_val, max_val) in formatted_pace_ranges.items():
-            pace_data['設定ペース'].append(f'{min_val} - {max_val} /km')
-            pace_data['目標心拍数'].append(f'{hr_ranges[pace][0]} - {hr_ranges[pace][1]}')
+        for pace, (min_val, max_val) in hr_ranges.items():
+            pace_data['設定ペース'].append(f'{formatted_pace_ranges[pace][0]} - {formatted_pace_ranges[pace][1]} /km')
+            pace_data['目標心拍数(回/分)'].append(f'{min_val} - {max_val}')
 
         pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace', 'Moderate Pace', 'Threshold Pace', 'CV Pace', 'Interval Pace', 'Repetition Pace'])
         st.table(pace_df.style.hide_index())
