@@ -18,14 +18,8 @@ def main():
     else:
         distance = 42195
 
-    #st.write('2. 自己ベスト (hh:mm:ss)')
-    #best_time = st.text_input('best_time', value='00:00:00')
-    
     st.write('2. 自己ベスト (hh:mm:ss)')
-    hours = st.multiselect('hours', list(range(24)), default=[0])
-    minutes = st.multiselect('minutes', list(range(60)), default=[0])
-    seconds = st.multiselect('seconds', list(range(60)), default=[0])
-    best_time_str = f"{hours[0]:02d}:{minutes[0]:02d}:{seconds[0]:02d}"
+    best_time = st.text_input('best_time', value='00:00:00')
     
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
