@@ -39,13 +39,13 @@ def main():
         submitted = st.button('作成')
 
         # off リストを更新
-        if freq == '3回/週':
+        if freq == '3 回/週':
             off = [0, 1, 3, 5]
-        elif freq == '4回/週':
+        elif freq == '4 回/週':
             off = [0, 3, 4]
-        elif freq == '5回/週':
+        elif freq == '5 回/週':
             off = [0, 4]
-        elif freq == '6回/週':
+        elif freq == '6 回/週':
             off = [0]
         else:
             off = []
@@ -112,15 +112,15 @@ def main():
         st.write(f'現在のVDOT(vo2max): {round(vo2max, 1)} ml/kg/分')
         st.write(f'最大心拍数(HRmax): {max_hr} 回/分')
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
-        if freq == '3回/週':
+        if freq == '3 回/週':
             distance_week = '40'
-        if freq == '4回/週':
+        if freq == '4 回/週':
             distance_week = '50'
-        elif freq == '5回/週':
+        elif freq == '5 回/週':
             distance_week = '65'
-        elif freq == '6回/週':
+        elif freq == '6 回/週':
             distance_week = '85'
-        elif freq == '7回/週':
+        elif freq == '7 回/週':
             distance_week = '110'
         else:
             distance_week = ''
@@ -164,7 +164,7 @@ def main():
     # トレーニングスケジュールを作成
         df = pd.DataFrame(columns=['曜日', 'トレーニングメニュー'])
         # 練習頻度3回/週
-        if freq in '3回/週':  
+        if freq in '3 回/週':  
             for i in range(7):
                 if i in off:
                     menu = 'OFF'
@@ -184,7 +184,7 @@ def main():
                     menu = f'Jog, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 60min'
                 df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
             
-        elif freq in ['4回/週', '5回/週']:
+        elif freq in ['4 回/週', '5 回/週']:
             for i in range(7):
                 if i in off:
                     menu = 'OFF'
