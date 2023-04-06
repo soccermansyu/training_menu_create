@@ -68,7 +68,7 @@ def main():
     if submitted:
 
         # 自己ベストを秒数に変換する
-        best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
+        # best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
         best_time_seconds = best_time.hour * 3600 + best_time.minute * 60 + best_time.second
 
         # 平均ペースを計算する
