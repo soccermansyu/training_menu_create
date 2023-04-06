@@ -18,8 +18,11 @@ def main():
     else:
         distance = 42195
 
-    st.write('2. 自己ベスト (hh:mm:ss)')
-    best_time = st.text_input('best_time', value='00:00:00')
+   # st.write('2. 自己ベスト (hh:mm:ss)')
+   # best_time = st.text_input('best_time', value='00:00:00')
+    
+    st.write('2. 自己ベスト')
+    best_time = st.time_input('best_time', value=None, step=1)
     
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
@@ -31,7 +34,7 @@ def main():
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # すべての入力ができているかチェック
-    if event == '' or best_time == '00:00:00' or freq == '' or age == 30:
+    if event == '' or best_time == None or freq == '' or age == 30:
         st.warning('未入力の項目があります')
         submitted = False
     else:
@@ -68,7 +71,7 @@ def main():
     if submitted:
 
         # 自己ベストを秒数に変換する
-        best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
+        # best_time = datetime.datetime.strptime(best_time, '%H:%M:%S')
         best_time_seconds = best_time.hour * 3600 + best_time.minute * 60 + best_time.second
 
         # 平均ペースを計算する
