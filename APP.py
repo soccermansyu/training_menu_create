@@ -31,7 +31,7 @@ def main():
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # すべての入力ができているかチェック
-    if event == '' or best_time == datetime.time(hour=0, minute=0, second=0) or freq == '' or age == 30:
+    if event == '' or best_time == datetime.time(hour=0, minute=0, second=0) or freq == '' or age == 0:
         st.warning('未入力の項目があります')
         submitted = False
     else:
