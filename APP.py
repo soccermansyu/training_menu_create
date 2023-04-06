@@ -22,13 +22,13 @@ def main():
     best_time = st.text_input('best_time', value='00:00:00')
 
     st.write('3. 年齢')
-    age = st.slider('age', min_value=10, max_value=80, value=0)
+    age = st.slider('age', min_value=10, max_value=80, value=30)
 
     st.write('4. 練習頻度')
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # すべての入力ができているかチェック
-    if event == '' or best_time == '00:00:00' or freq == '' or age == 0:
+    if event == '' or best_time == '00:00:00' or freq == '' or age == 30:
         st.warning('未入力の項目があります')
         submitted = False
     else:
