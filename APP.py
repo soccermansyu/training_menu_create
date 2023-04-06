@@ -108,7 +108,7 @@ def main():
             formatted_max_pace = seconds_to_mmss(int(max_pace))
             formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
-        st.write(f'種目: {event}')
+        st.write(f'種目: {event2}')
 # st.write(f'自己ベスト: {best_time}')
         st.write(f'最大心拍数(HRmax): {max_hr}回/分')
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
