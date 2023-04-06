@@ -55,7 +55,7 @@ def main():
     moderate_hr = (int(max_hr * 0.74), int(max_hr * 0.79))
     threshold_hr = (int(max_hr * 0.8), int(max_hr * 0.92))
     cv_hr = (int(max_hr * 0.90), int(max_hr * 0.95))
-    interval_hr = (int(max_hr * 0.9), int(max_hr * 1.0))
+    interval_hr = (int(max_hr * 0.95), int(max_hr * 1.0))
     repetition_hr = ('-', '-')
 
     def seconds_to_mmss(seconds):
