@@ -7,7 +7,7 @@ def main():
     st.title("ランニングの練習メニュー作成アプリケーション")
 
     # 入力フォームを作成
-    st.write('1. 種目')
+    st.write('1. 自己ベストの種目')
     event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
     if event == '5000m':
         distance = 5000
@@ -20,11 +20,14 @@ def main():
 
     st.write('2. 自己ベスト (hh:mm:ss)')
     best_time = st.text_input('best_time', value='00:00:00')
+    
+    st.write('3. 目標とする種目')
+    event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
 
-    st.write('3. 年齢')
+    st.write('4. 年齢')
     age = st.slider('age', min_value=10, max_value=80, value=30)
 
-    st.write('4. 練習頻度')
+    st.write('5. 練習頻度')
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # すべての入力ができているかチェック
@@ -165,13 +168,13 @@ def main():
                     menu = 'OFF'
 
         # ポイント練習1回目
-                elif event == '5000m' and i == 2:  # 5000m
+                elif event2 == '5000m' and i == 2:  # 5000m
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_min}/km, 1km×5本 レスト400mジョギング'
-                elif event == '10000m' and i == 2:  # 10000m
+                elif event2 == '10000m' and i == 2:  # 10000m
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_min}/km, 1km×5本 レスト400mジョギング'
-                elif event == 'ハーフマラソン' and i == 2:  # ハーフマラソン
+                elif event2 == 'ハーフマラソン' and i == 2:  # ハーフマラソン
                     menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace_max}/km, 20min'
-                elif event == 'フルマラソン' and i == 2:  # フルマラソン
+                elif event2 == 'フルマラソン' and i == 2:  # フルマラソン
                     menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace_max}/km, 20min'
         # ポイント練習2回目
                 elif i == 6:
@@ -185,22 +188,22 @@ def main():
                 if i in off:
                     menu = 'OFF'
         # ポイント練習1回目
-                elif event == '5000m' and i == 2:  # 5000m
+                elif event2 == '5000m' and i == 2:  # 5000m
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_min}/km, 1km×5本 レスト400mジョギング'
-                elif event == '10000m' and i == 2:  # 10000m
+                elif event2 == '10000m' and i == 2:  # 10000m
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_min}/km, 1km×5本 レスト400mジョギング'
-                elif event == 'ハーフマラソン' and i == 2:  # ハーフマラソン
+                elif event2 == 'ハーフマラソン' and i == 2:  # ハーフマラソン
                     menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace_max}/km, 20min'
-                elif event == 'フルマラソン' and i == 2:  # フルマラソン
+                elif event2 == 'フルマラソン' and i == 2:  # フルマラソン
                     menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace_max}/km, 20min'
         # ポイント練習2回目
-                elif event == '5000m' and i == 6:  # 5000m
+                elif event2 == '5000m' and i == 6:  # 5000m
                     menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace_max}/km, 20min'
-                elif event == '10000m' and i == 6:  # 10000m
+                elif event2 == '10000m' and i == 6:  # 10000m
                     menu = f'ポイント練習：ペース走, 設定ペース{threshold_pace_max}/km, 20min'      
-                elif event == 'ハーフマラソン' and i == 6:  # ハーフマラソン
+                elif event2 == 'ハーフマラソン' and i == 6:  # ハーフマラソン
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 90min'
-                elif event == 'フルマラソン' and i == 6:  # フルマラソン
+                elif event2 == 'フルマラソン' and i == 6:  # フルマラソン
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 90min'
                 else:
                     menu = f'Jog, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 60min'
@@ -213,20 +216,20 @@ def main():
                 elif i == 2:
                     menu = f'ポイント練習：ペース走\n設定ペース{threshold_pace_max}/km, 20min'
         # ポイント練習2回目
-                elif event == '5000m' and i == 5:  # 5000m
+                elif event2 == '5000m' and i == 5:  # 5000m
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_min}/km, 1km×5本 レスト400mジョギング'
-                elif event == '10000m' and i == 5:  # 10000m
+                elif event2 == '10000m' and i == 5:  # 10000m
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_min}/km, 1km×5本 レスト400mジョギング'
-                elif event == 'ハーフマラソン' and i == 5:  # ハーフマラソン
+                elif event2 == 'ハーフマラソン' and i == 5:  # ハーフマラソン
                     menu = f'ポイント練習：インターバル走, 設定ペース{interval_pace_max}/km, 1km×3本 レスト400mジョギング'
         # ポイント練習3回目
-                elif event == '5000m' and i == 6:  # 5000m
+                elif event2 == '5000m' and i == 6:  # 5000m
                     menu = f'ロングジョグ, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 90min'
-                elif event == '10000m' and i == 6:  # 10000m
+                elif event2 == '10000m' and i == 6:  # 10000m
                     menu = f'ロングジョグ, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 90min'    
-                elif event == 'ハーフマラソン' and i == 6:  # ハーフマラソン
+                elif event2 == 'ハーフマラソン' and i == 6:  # ハーフマラソン
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 90min'
-                elif event == 'フルマラソン' and i == 6:  # フルマラソン
+                elif event2 == 'フルマラソン' and i == 6:  # フルマラソン
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 120min'
                 else:
                     menu = f'Jog, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 60min'
