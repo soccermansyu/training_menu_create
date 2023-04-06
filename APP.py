@@ -127,7 +127,7 @@ def main():
             'easy_pace': easy_hr,
             'moderate_pace': moderate_hr,
             'threshold_pace': threshold_hr,
-            'cv_pace': cv_hr,
+            'cv_pace': cv_hr,           
             'interval_pace': interval_hr,
             'repetition_pace': repetition_hr
         }
