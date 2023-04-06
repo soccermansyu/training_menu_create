@@ -129,7 +129,7 @@ def main():
             'threshold_pace': threshold_hr,
             'cv_pace': cv_hr,
             'interval_pace': interval_hr,
-            'repetition_pace': repetition_hr
+            'repetition_pace': '-'
         }
 
         pace_data = {'設定ペース': [], '目標心拍数(回/分)': []}
