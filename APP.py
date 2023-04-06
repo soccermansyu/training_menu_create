@@ -19,7 +19,7 @@ def main():
         distance = 42195
 
     st.write('2. 自己ベスト (hh:mm:ss)')
-    best_time = st.text_input('best_time', value='00:00:00', type='time')
+    best_time = st.text_input('best_time', value='00:00:00')
     
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
