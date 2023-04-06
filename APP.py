@@ -18,9 +18,10 @@ def main():
     else:
         distance = 42195
 
-    st.write('2. 自己ベスト (hh:mm:ss)')
-    best_time = st.text_input('best_time', value='00:00:00')
-    
+    st.write('2. 自己ベスト')
+    default_time = datetime.time(0, 0, 0)
+    best_time = st.time_input('best_time', value=default_time, scrollwheel=True)
+
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
 
@@ -31,7 +32,7 @@ def main():
     freq = st.selectbox('freq', ['3回/週', '4回/週', '5回/週', '6回/週', '7回/週'])
 
     # すべての入力ができているかチェック
-    if event == '' or best_time == '00:00:00' or freq == '' or age == 30:
+    if event == '' or best_time == default_time or freq == '' or age == 30:
         st.warning('未入力の項目があります')
         submitted = False
     else:
