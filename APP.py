@@ -21,9 +21,9 @@ def main():
 
     st.write('2. 自己ベスト(hh:mm:ss)')
     st.write('半角の数字で入力してください')
-    best_time_hour = st.number_input('hh', min_value=0, max_value=23, value=0, step=1)
-    best_time_minute = st.number_input('mm', min_value=0, max_value=59, value=0, step=1)
-    best_time_second = st.number_input('ss', min_value=0, max_value=59, value=0, step=1)
+    best_time_hour = st.number_input('時間', min_value=0, max_value=23, value=0, step=1)
+    best_time_minute = st.number_input('分', min_value=0, max_value=59, value=0, step=1)
+    best_time_second = st.number_input('秒', min_value=0, max_value=59, value=0, step=1)
 
     # hh:mm:ss形式の文字列を作成する
     best_time = f"{str(best_time_hour).zfill(2)}:{str(best_time_minute).zfill(2)}:{str(best_time_second).zfill(2)}"
