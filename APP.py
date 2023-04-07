@@ -21,16 +21,10 @@ def main():
 
 #     st.write('2. 自己ベスト (hh:mm:ss)')
 #     best_time = st.text_input('best_time', value='00:00:00')
-    # テキスト入力フォームを作成する
     st.write('2. 自己ベスト (hh:mm:ss)')
     best_time_hour = st.number_input('best_time_hour', min_value=0, max_value=23, value=0, step=1)
     best_time_minute = st.number_input('best_time_minute', min_value=0, max_value=59, value=0, step=1)
     best_time_second = st.number_input('best_time_second', min_value=0, max_value=59, value=0, step=1)
-
-    # 全角数字を半角数字に変換する
-    best_time_hour = unicodedata.normalize('NFKC', best_time_hour)
-    best_time_minute = unicodedata.normalize('NFKC', best_time_minute)
-    best_time_second = unicodedata.normalize('NFKC', best_time_second)
 
     # hh:mm:ss形式の文字列を作成する
     best_time = f"{str(best_time_hour).zfill(2)}:{str(best_time_minute).zfill(2)}:{str(best_time_second).zfill(2)}"
