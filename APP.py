@@ -29,7 +29,7 @@ def main():
     best_time = f"{str(best_time_hour).zfill(2)}:{str(best_time_minute).zfill(2)}:{str(best_time_second).zfill(2)}"
 
     # 自己ベストタイムを表示する
-    st.write(f"自己ベストタイム： {best_time}")
+    st.write(f"あなたの自己ベストタイム： {best_time}({event})")
 
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
@@ -118,7 +118,7 @@ def main():
             formatted_max_pace = seconds_to_mmss(int(max_pace))
             formatted_pace_ranges[pace] = (formatted_min_pace, formatted_max_pace)
 
-        st.write(f'種目: {event2}')
+        st.write(f'目標種目: {event2}')
         st.write(f'現在のVDOT(vo2max): {round(vo2max, 1)} ml/kg/分')
         st.write(f'最大心拍数(HRmax): {max_hr} 回/分')
         st.write(f'※最大心拍数(HRmax)の計算方法：207 - (年齢 × 0.7)')
