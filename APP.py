@@ -5,8 +5,8 @@ import math
 import unicodedata
 
 def main():
-    st.title("ランニングの練習メニュー作成アプリケーション")
-
+    st.title("ランニングの練習メニュー作成アプリ")
+    st.write('Produced By 「ランニングを科学する」')
     # 入力フォームを作成
     st.write('1. 自己ベストの種目')
     event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
