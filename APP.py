@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import math
+import unicodedata
 
 def main():
     st.title("ランニングの練習メニュー作成アプリケーション")
@@ -20,12 +21,22 @@ def main():
 
 #     st.write('2. 自己ベスト (hh:mm:ss)')
 #     best_time = st.text_input('best_time', value='00:00:00')
+    # テキスト入力フォームを作成する
     st.write('2. 自己ベスト (hh:mm:ss)')
     best_time_hour = st.text_input('best_time_hour', value='00', max_chars=2)
     best_time_minute = st.text_input('best_time_minute', value='00', max_chars=2)
     best_time_second = st.text_input('best_time_second', value='00', max_chars=2)
+
+    # 全角数字を半角数字に変換する
+    best_time_hour = unicodedata.normalize('NFKC', best_time_hour)
+    best_time_minute = unicodedata.normalize('NFKC', best_time_minute)
+    best_time_second = unicodedata.normalize('NFKC', best_time_second)
+
+    # hh:mm:ss形式の文字列を作成する
     best_time = f"{best_time_hour}:{best_time_minute}:{best_time_second}"
-    st.write(f"あなたの自己ベストタイム： {best_time}")
+
+    # 自己ベストタイムを表示する
+    st.write(f"自己ベストタイム： {best_time}")
     
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
