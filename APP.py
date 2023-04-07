@@ -33,7 +33,7 @@ def main():
     best_time_second = unicodedata.normalize('NFKC', best_time_second)
 
     # hh:mm:ss形式の文字列を作成する
-    best_time = f"{best_time_hour:02d}:{best_time_minute:02d}:{best_time_second:02d}"
+    best_time = f"{str(best_time_hour).zfill(2)}:{str(best_time_minute).zfill(2)}:{str(best_time_second).zfill(2)}"
 
     # 自己ベストタイムを表示する
     st.write(f"自己ベストタイム： {best_time}")
