@@ -23,9 +23,9 @@ def main():
 #     best_time = st.text_input('best_time', value='00:00:00')
     # テキスト入力フォームを作成する
     st.write('2. 自己ベスト (hh:mm:ss)')
-    best_time_hour = st.text_input('best_time_hour', value='00', max_chars=2)
-    best_time_minute = st.text_input('best_time_minute', value='00', max_chars=2)
-    best_time_second = st.text_input('best_time_second', value='00', max_chars=2)
+    best_time_hour = st.number_input('best_time_hour', min_value=0, max_value=23, value=0, step=1)
+    best_time_minute = st.number_input('best_time_minute', min_value=0, max_value=59, value=0, step=1)
+    best_time_second = st.number_input('best_time_second', min_value=0, max_value=59, value=0, step=1)
 
     # 全角数字を半角数字に変換する
     best_time_hour = unicodedata.normalize('NFKC', best_time_hour)
