@@ -9,7 +9,7 @@ def main():
 
     # 入力フォームを作成
     st.write('1. 自己ベストの種目')
-    event = st.selectbox('', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
+    event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
     if event == '5000m':
         distance = 5000
     elif event == '10000m':
@@ -21,24 +21,24 @@ def main():
 
     st.write('2. 自己ベスト(hh:mm:ss)')
     st.write('半角の数字で入力してください')
-    best_time_hour = st.number_input('時間', min_value=0, max_value=23, value=0, step=1)
-    best_time_minute = st.number_input('分', min_value=0, max_value=59, value=0, step=1)
-    best_time_second = st.number_input('秒', min_value=0, max_value=59, value=0, step=1)
+    best_time_hour = st.number_input('hh', min_value=0, max_value=23, value=0, step=1)
+    best_time_minute = st.number_input('mm', min_value=0, max_value=59, value=0, step=1)
+    best_time_second = st.number_input('ss', min_value=0, max_value=59, value=0, step=1)
 
     # hh:mm:ss形式の文字列を作成する
     best_time = f"{str(best_time_hour).zfill(2)}:{str(best_time_minute).zfill(2)}:{str(best_time_second).zfill(2)}"
 
     # 自己ベストタイムを表示する
     st.write(f"自己ベストタイム： {best_time}")
-    
+
     st.write('3. 目標とする種目')
-    event2 = st.selectbox('', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
+    event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
 
     st.write('4. 年齢')
-    age = st.slider('', min_value=10, max_value=80, value=30)
+    age = st.slider('age', min_value=10, max_value=80, value=30)
 
     st.write('5. 練習頻度')
-    freq = st.selectbox('', ['3 回/週', '4 回/週', '5 回/週', '6 回/週', '7 回/週'])
+    freq = st.selectbox('freq', ['3 回/週', '4 回/週', '5 回/週', '6 回/週', '7 回/週'])
 
     # すべての入力ができているかチェック
     if event == '' or best_time == '00:00:00' or freq == '' or age == 0:
