@@ -254,12 +254,12 @@ def main():
         st.write("・ポイント練習での心拍数目安は、練習の後半で最終的に到達する心拍数です。練習序盤は低めの心拍数となります。")        
         st.write("・目標とするレースに合わせて、練習の内容を変えることで、さらに記録向上を狙うことも可能ですが、そこまで突き詰める必要が無い方にとっては、このトレーニングメニューで十分だと考えています。")
         st.write("・ペース毎の詳細解説")
-        st.write("　＞【ジョギング(Eペース走)】効果を高めるための心拍数や距離を考察(https://shuichi-running.com/jogging-theory/)")
-        #st.write("　＞【マラソンペース(Mペース)でのトレーニング効果と練習法】生理学とトレーニング原則から考察(https://shuichi-running.com/marathonpace-tr-theory/)")
+        st.write("　＞【ジョギング(Eペース走)】効果を高めるための心拍数や距離を考察/n https://shuichi-running.com/jogging-theory/")
+
         st.write("　＞【LT走(閾値走)】乳酸性作業閾値を高める効果的な練習方法(ペース設定等)(https://shuichi-running.com/lt-tr/)")
-        #st.write("　＞【CVインターバルトレーニング】遅いペースのインターバルでも効果がある理由(https://shuichi-running.com/cvinterval-tr-theory/)")
+
         st.write("　＞【インターバルトレーニング】ペースとレストの設定方法により得られる効果の違いを徹底解説(https://shuichi-running.com/interval-tr/)")
-        #st.write("　＞【レペティショントレーニングとは？】目的と効果を徹底解説し練習方法を紹介(https://shuichi-running.com/repetition-tr-theory/)")
+
 
 if __name__ == '__main__':
     main()
