@@ -266,6 +266,7 @@ def main():
         st.write("　＞【CVインターバルトレーニング】遅いペースのインターバルでも効果がある理由\n(https://shuichi-running.com/cvinterval-tr-theory/)")
         st.write("　＞【インターバルトレーニング】ペースとレストの設定方法により得られる効果の違いを徹底解説(https://shuichi-running.com/interval-tr/)")
         st.write("　＞【レペティショントレーニングとは？】目的と効果を徹底解説し練習方法を紹介(https://shuichi-running.com/repetition-tr-theory/)")
+        st.write("「ランニングを科学する」ではオンラインパーソナルトレーニングサービスを行っています。仕事・家事・育児で忙しいランナーに向け、「効率よく」を方針として、1人1人の都合に合わせてトレーニングを構築します。詳細は以下のリンク先で紹介しております。(https://shuichi-running.com/online-menu/)")
         
 if __name__ == '__main__':
     main()
