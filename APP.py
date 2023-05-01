@@ -38,11 +38,11 @@ def main():
          unsafe_allow_html=True)
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
 
-    st.write("<span style='font-size: 18px;'>4. 年齢</b></span>", 
+    st.write("<span style='font-size: 18px;'><b>4. 年齢</b></span>", 
          unsafe_allow_html=True)
     age = st.slider('age', min_value=10, max_value=80, value=30)
 
-    st.write("<span style='font-size: 18px;'>5. 練習頻度</b></span>", 
+    st.write("<span style='font-size: 18px;'><b>5. 練習頻度</b></span>", 
          unsafe_allow_html=True)
     freq = st.selectbox('freq', ['3 回/週', '4 回/週', '5 回/週', '6 回/週', '7 回/週'])
 
