@@ -29,8 +29,8 @@ def main():
     best_time = f"{str(best_time_hour).zfill(2)}:{str(best_time_minute).zfill(2)}:{str(best_time_second).zfill(2)}"
 
     # 自己ベストタイムを表示する
-    st.write(f"あなたの自己ベストタイム： {best_time}({event})", 
-             style={"font-size": "50px"})
+    st.write(f"<span style='font-size: 24px;'>あなたの自己ベストタイム： {best_time}({event})</span>", 
+         unsafe_allow_html=True)
 
     st.write('3. 目標とする種目')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
