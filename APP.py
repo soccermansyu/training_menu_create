@@ -261,11 +261,11 @@ def main():
         st.write("・目標とするレースに合わせて、練習の内容を変えることで、さらに記録向上を狙うことも可能ですが、そこまで突き詰める必要が無い方にとっては、このトレーニングメニューで十分だと考えています。")
         st.write("・ペース毎の詳細解説")
         st.write("　＞【ジョギング(Eペース走)】効果を高めるための心拍数や距離を考察\n(https://shuichi-running.com/jogging-theory/)")
-
+        st.write("　＞【距離走(ロングジョグ)】の効果を最大化する方法を考察 適正ペースや距離は？\n(https://shuichi-running.com/long-run-theory/)")
         st.write("　＞【LT走(閾値走)】乳酸性作業閾値を高める効果的な練習方法(ペース設定等)(https://shuichi-running.com/lt-tr/)")
-
+        st.write("　＞【CVインターバルトレーニング】遅いペースのインターバルでも効果がある理由\n(https://shuichi-running.com/cvinterval-tr-theory/)")
         st.write("　＞【インターバルトレーニング】ペースとレストの設定方法により得られる効果の違いを徹底解説(https://shuichi-running.com/interval-tr/)")
-
-
+        st.write("　＞【レペティショントレーニングとは？】目的と効果を徹底解説し練習方法を紹介(https://shuichi-running.com/repetition-tr-theory/)")
+        
 if __name__ == '__main__':
     main()
