@@ -8,7 +8,7 @@ def main():
     st.title("ランニングの練習メニュー作成アプリ")
     st.write('Produced By 「ランニングを科学する」')
     # 入力フォームを作成
-    st.write('1. 自己ベストを出した種目')
+    st.write('<span style='font-size: 18px;'><b>1. 自己ベストを出した種目</b></span>')
     event = st.selectbox('event', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
     if event == '5000m':
         distance = 5000
@@ -19,7 +19,7 @@ def main():
     else:
         distance = 42195
 
-    st.write('2. 自己ベスト(hh:mm:ss)')
+    st.write('<span style='font-size: 18px;'><b>2. 自己ベスト(hh:mm:ss)</b></span>')
     st.write('半角の数字で入力してください')
     best_time_hour = st.number_input('時間', min_value=0, max_value=23, value=0, step=1)
     best_time_minute = st.number_input('分', min_value=0, max_value=59, value=0, step=1)
@@ -32,13 +32,13 @@ def main():
     st.write(f"<span style='font-size: 20px;'><b>-->あなたの自己ベストタイム： {best_time}({event})</b></span>", 
          unsafe_allow_html=True)
 
-    st.write('3. 目標とする種目')
+    st.write('<span style='font-size: 18px;'><b>3. 目標とする種目</b></span>')
     event2 = st.selectbox('event2', ['5000m', '10000m', 'ハーフマラソン', 'フルマラソン'])
 
-    st.write('4. 年齢')
+    st.write('<span style='font-size: 18px;'>4. 年齢</b></span>')
     age = st.slider('age', min_value=10, max_value=80, value=30)
 
-    st.write('5. 練習頻度')
+    st.write('<span style='font-size: 18px;'>5. 練習頻度</b></span>')
     freq = st.selectbox('freq', ['3 回/週', '4 回/週', '5 回/週', '6 回/週', '7 回/週'])
 
     # すべての入力ができているかチェック
