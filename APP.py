@@ -159,7 +159,6 @@ def main():
             pace_data['目標心拍数(回/分)'].append(f'{min_val} - {max_val}')
 
         pace_df = pd.DataFrame(data=pace_data, index=['Easy Pace', 'Moderate Pace', 'Threshold Pace', 'CV Pace', 'Interval Pace', 'Repetition Pace'])
-        st.table(pace_df.style.hide_index())
         easy_pace_min = formatted_pace_ranges['easy_pace'][0]
         easy_pace_max = formatted_pace_ranges['easy_pace'][1]
         moderate_pace_min = formatted_pace_ranges['moderate_pace'][0]
