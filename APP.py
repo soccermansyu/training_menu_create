@@ -72,7 +72,7 @@ def main():
     threshold_hr = (int(max_hr * 0.8), int(max_hr * 0.92))
     cv_hr = (int(max_hr * 0.90), int(max_hr * 0.95))
     interval_hr = (int(max_hr * 0.95), int(max_hr * 1.0))
-    repetition_hr = (int(max_hr * 1.0), int(max_hr * 1.0))
+    repetition_hr = ("-", "-")
 
     def seconds_to_mmss(seconds):
         seconds = int(seconds + 0.5)    # 秒数を四捨五入
