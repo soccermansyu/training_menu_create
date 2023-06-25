@@ -254,7 +254,7 @@ def main():
                 
         # 表形式でトレーニングメニューを出力
         st.table(df.set_index('曜日'))
-        st.table(pace_df.style.hide_index())
+        st.table(pace_df)
         st.write("コメント：")
         st.write("・年間を通じて行うことで記録が向上する、基本的なトレーニングメニューです。")
         st.write("・走る距離ではなく、時間を目安にメニューを作成しています。")
