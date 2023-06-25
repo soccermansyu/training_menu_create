@@ -197,7 +197,7 @@ def main():
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 90min'
                 else:
                     menu = f'Jog, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 60min'
-                df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
+                df.loc[len(df)] = {'曜日': week[i], 'トレーニングメニュー': menu}
 
         elif freq in ['4 回/週', '5 回/週']:
             for i in range(7):
@@ -223,7 +223,7 @@ def main():
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 90min'
                 else:
                     menu = f'Jog, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 60min'
-                df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
+                df.loc[len(df)] = {'曜日': week[i], 'トレーニングメニュー': menu}
 
         else:
             for i in range(7):
@@ -250,7 +250,7 @@ def main():
                     menu = f'ロングラン, 設定ペース{moderate_pace_min}~{moderate_pace_max}/km, 120min'
                 else:
                     menu = f'Jog, 設定ペース{easy_pace_min}~{easy_pace_max}/km, 60min'
-                df = df.append({'曜日': week[i], 'トレーニングメニュー': menu}, ignore_index=True)
+                df.loc[len(df)] = {'曜日': week[i], 'トレーニングメニュー': menu}
                 
         # 表形式でトレーニングメニューを出力
         st.table(df.set_index('曜日'))
