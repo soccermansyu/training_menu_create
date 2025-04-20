@@ -105,7 +105,7 @@ def main():
             'threshold_pace': (0.80, 0.88),
             'cv_pace': (0.89, 0.94),            
             'interval_pace': (0.95, 1.00),
-            'repetition_pace': (1.05, 1.20)
+            'repetition_pace': (1.05, 1.70)
         }
         
         pace_ranges = {}
